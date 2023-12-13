@@ -1,77 +1,103 @@
 <!-- kintamiji ir sakygos -->
 <!-- 1. 4 kintamiejis -->
-<?php
 
+<?php
 $vardas = 'Modestas';
 $pavarde = "Juska";
 $gimimoMetai = 1978;
 $sieMetai = date("Y"); 
 $amzius = $sieMetai - $gimimoMetai;
 
-echo "Aš esu $vardas $pavarde. Man yra $amzius metai(ų).";
+echo "1. Aš esu $vardas $pavarde. Man yra $amzius metai(ų).<br>";
 
 // 2. du kintamieji
 
-$pirmaReiksme = rand(0, 4);
-$antraReiksme = rand(0, 4);
-
-$didesneReiksme = max($pirmaReiksme, $antraReiksme);
-$mazesneReiksme = min($pirmaReiksme, $antraReiksme);
-
-if ($mazesneReiksme != 0) {
-    $rezultatas = $didesneReiksme / $mazesneReiksme;
-    echo "Didesnė reikšmė: $didesneReiksme, Mažesnė reikšmė: $mazesneReiksme, Rezultatas: " . round($rezultatas, 2);
-} else {
-    echo "Dalyba iš nulio negalima.";
-}
-
-//v2
 $pirmasSkaicius = rand(0,4);
 $antrasSkaicius = rand(0,4);
 $didesnisSkaicius = max($pirmasSkaicius, $antrasSkaicius);
 $mazesnisSkaicius = min($pirmasSkaicius, $antrasSkaicius);
 if($mazesnisSkaicius > 0) {
     $galutinisRezultatas = $didesnisSkaicius / $mazesnisSkaicius;
-    echo "Galutinis rezultatas lygus:  $galutinisRezultatas";
+    echo "2. Galutinis rezultatas lygus:  $galutinisRezultatas";
 } else {
-    echo "Dalyba is nulio negalima";
+    echo "2. Dalyba is nulio negalima";
 };
 
+echo"<br>";
 // 3. trys kintamieji
 $pirmas = rand(0,25);
 $antras = rand(0,25);
 $trecias  = rand(0,25);
-
 // Sudedam visus tris skaičius į masyvą
 $numbers = [$pirmas, $antras, $trecias];
-
 // Rūšiuojam masyvą didėjimo tvarka
 sort($numbers);
-
 // Pasiimam vidurinį skaičių
 $middleNumber = $numbers[1];
-
 // Spausdinam rezultatą
-echo "Vidurinis skaičius: $middleNumber";
+echo "3. Vidurinis skaičius: $middleNumber<br>";
 
 //4. trikampis
-
-// Generate random lengths for the sides of the triangle
 $a = rand(1, 10);
 $b = rand(1, 10);
 $c = rand(1, 10);
-
-// Function to check if the given sides can form a triangle
 function isTriangle($a, $b, $c) {
     return ($a + $b > $c) && ($a + $c > $b) && ($b + $c > $a);
 }
-
-// Check if the generated sides can form a triangle
 if (isTriangle($a, $b, $c)) {
-    echo "Trikampis su kraštinėmis $a, $b, ir $c yra galimas.";
+    echo "4. Trikampis su kraštinėmis $a, $b, ir $c yra galimas.<br>";
 } else {
-    echo "Trikampis su kraštinėmis $a, $b, ir $c nėra galimas.";
+    echo "4. Trikampis su kraštinėmis $a, $b, ir $c nėra galimas.<br>";
 }
+
+// 5. keturi kintamieji ir suma
+$kp = rand(0, 2);
+$ka = rand(0, 2);
+$kt = rand(0, 2);
+$kk = rand(0, 2);
+$sn = ($kp === 0) + ($ka === 0) + ($kt === 0) + ($kk === 0);
+$sv = ($kp === 1) + ($ka === 1) + ($kt === 1) + ($kk === 1);
+$sd = ($kp === 2) + ($ka === 2) + ($kt === 2) + ($kk === 2);
+echo"5/ Nuliu: $sn, Vienetu: $sv, Dvejetu: $sd<br>";
+
+// V2
+// Sukurkite keturis kintamuosius ir rand() funkcija sugeneruokite jiems reikšmes nuo 0 iki 2
+// $variable1 = rand(0, 2);
+// $variable2 = rand(0, 2);
+// $variable3 = rand(0, 2);
+// $variable4 = rand(0, 2);
+
+// // Suskaičiuokite kiek yra nulių, vienetų ir dvejetų
+// $countZeros = ($variable1 == 0) + ($variable2 == 0) + ($variable3 == 0) + ($variable4 == 0);
+// $countOnes = ($variable1 == 1) + ($variable2 == 1) + ($variable3 == 1) + ($variable4 == 1);
+// $countTwos = ($variable1 == 2) + ($variable2 == 2) + ($variable3 == 2) + ($variable4 == 2);
+
+// // Spausdiname rezultatus
+// echo "5. Reikšmės: $variable1, $variable2, $variable3, $variable4";
+// echo "Nulių: $countZeros, Vienetų: $countOnes, Dvejetų: $countTwos<br>";
+
+// 6. h tagas
+
+$atsitiktinisSkaicius = rand(1, 6);
+<h>$atsitiktinisSkaicius</h>;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 11. 
 
@@ -106,13 +132,13 @@ if ($num1 >= $num2 && $num1 >= $num3 && $num1 >= $num4 && $num1 >= $num5 && $num
     $result .= $num6 . ' ';
 }
 
-echo rtrim($result); // Išspausdiname rezultatą, pašalindami paskutinį tarpą
-<!-- 
-<?php
-<!-- klases uzdaviniai -->
-echo <br>;
-$kas = 0;
-var-dump(isset($kas)); -->
+// echo rtrim($result); // Išspausdiname rezultatą, pašalindami paskutinį tarpą
+// <!-- 
+// <?php
+// <!-- klases uzdaviniai -->
+// echo <br>;
+// $kas = 0;
+// var-dump(isset($kas)); -->
 
 
 
