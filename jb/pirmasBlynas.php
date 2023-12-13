@@ -12,7 +12,7 @@ $pavarde = "Juska";
 $gimimoMetai = 1978;
 $sieMetai = date("Y"); 
 $amzius = $sieMetai - $gimimoMetai;
-echo "Aš esu $vardas $pavarde. Man yra $amzius metai(ų).<br>";
+echo "Aš esu $vardas $pavarde. Man yra $amzius metai(ų).<br>"'';
 
 $pirmaReiksme = rand(0, 4);
 $antraReiksme = rand(0, 4);
