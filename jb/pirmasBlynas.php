@@ -42,3 +42,45 @@ while ($sk < 9) {
    $sk = rand(0, 10);
 }
 
+for ($a = 1; $a <= 5; $a++) {
+    echo '<b>Didžiojo ciklo Numeris: '.$a.' </b><br>';
+    for ($x = 1; $x <= 5; $x++) {
+        echo 'Mažojo Ciklo Numeris: '.$x.' <br>';
+    }
+ }
+
+ echo '<br>';
+
+ $colors = ['red', 'green', 'blue', 'yellow'];
+foreach ($colors as $value) {
+   echo 'Reikšmė: ' . $value . '<br>';
+}
+
+echo '<br>';
+$colors = ['red', 'green', 'blue', 'yellow'];
+foreach ($colors as $index => $value) {
+   echo 'Indeksas: ' . $index . ' Reikšmė: ' . $value . '<br>';
+}
+
+echo '<br>';
+for ($i = 1;$i <= 15;$i++){
+    if (rand(0, 10)> 9){
+        break;
+    }
+    echo $i;
+    echo '<br>';
+  }
+  echo 'Ciklo pabaiga';
+
+  echo '<br>';
+  $i = 0;
+  for ($i = 0;$i <= 5;$i++){
+     if ($i==2){
+         continue;
+     }
+     echo $i;
+     echo '<br>';
+  }
+  echo 'Ciklo pabaiga';
+  
+  
