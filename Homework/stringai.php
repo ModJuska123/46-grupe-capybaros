@@ -189,6 +189,6 @@ $randomString = implode(' ', $randomWords);
 echo $randomString; '<br>';
 
 echo '<br>';
-$a1=array("red","green");
+$a1=array("red","green"); //pav. kaip veikiaarray_merge
 $a2=array("blue","yellow");
 print_r(array_merge($a1,$a2));
