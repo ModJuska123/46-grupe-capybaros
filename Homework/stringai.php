@@ -1,6 +1,7 @@
 <!-- Stringai - uzdaviniai -->
+
 <?php
-// 1. trumpesnis stringas
+// 1. trumpesnis stringas---------------------------------
 
 $vardas = 'James';
 $pavarde = 'Bond';
@@ -10,12 +11,12 @@ if (strlen($vardas) < strlen($pavarde)) {
 }
 
 echo'<br>';
-// 2. vardas didziosiomis, pavarde mazosiomis;
+// 2. vardas didziosiomis, pavarde mazosiomis;---------------
 
 echo strtolower($vardas) . ' ' . ($pavarde);
 
 echo'<br>';
-// 3. vardas is raidziu
+// 3. vardas is raidziu--------------------------------------
 
 // Sukurkime du kintamuosius ir priskirkime savo mylimo aktoriaus vardą ir pavardę
 $vardas1 = "Jonas";
@@ -28,7 +29,7 @@ $pirmosRaidziuStringas = substr($vardas1, 0, 1) . substr($pavarde1, 3, 4);
 echo "Sudarytas naujas vardas: $pirmosRaidziuStringas. <br>";
 
 echo'<br>';
-// 4. vardas is raidziu
+// 4. vardas is raidziu--------------------------------
 
 $vardas2 = "Chuck";
 $pavarde2 = "Noris";
@@ -38,7 +39,7 @@ $paskutiniuRaidziuStringas = substr($vardas2, -1) . substr($pavarde2, -1);
 echo "Paskutiniu raidziu stringas vadinasi: $paskutiniuRaidziuStringas";
 
 echo'<br>';
-// 5. vardas is raidziu
+// 5. vardas is raidziu-----------------------------------
 
 $movie = "An American in Paris";
 $a = array('A', 'a');
@@ -46,14 +47,14 @@ $newMovieString = str_replace($a, "*", $movie);
 echo $newMovieString;
 
 echo'<br>';
-// 6. vardas is raidziu
+// 6. vardas is raidziu---------------------------------
 
 $str = "An American in Paris";
 $char = 'a';
 echo "The character 'a' appears " . substr_count(strtolower($str), $char) . " times in the string.";
 
 echo'<br><br>';
-// 7. vardas is raidziu
+// 7. vardas is raidziu---------------------------------
 
 $newString = [
 "An American in Paris",
@@ -72,7 +73,7 @@ foreach ($newString as $string) {
 }
 
 echo'<br><br>';
-// 8. vardas is raidziu
+// 8. vardas is raidziu----------------------------------
 
 $pirmasFilmas = 'Star Wars: Episode ';
 $epizodas = ' - A New Hope';
@@ -83,7 +84,7 @@ $epizodas = ' - A New Hope';
 $rezultatas = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope';
 
 
-// Ištraukiamas epizodo numeris
+// Ištraukiamas epizodo numeris---------------------------
 preg_match('/\b\d\b/', $rezultatas, $matches);
 $episodeNumber = $matches[0];
 
@@ -92,7 +93,7 @@ echo "Generuotas tekstas: '$rezultatas'<br>";
 echo "Epizodo numeris: $episodeNumber\n";
 
 echo'<br><br>';
-// 9. vardas is raidziu------------------
+// 9. vardas is raidziu-----------------------------------
 
 $string1 = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
 $string2 = "Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale";
