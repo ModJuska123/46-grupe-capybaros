@@ -2,7 +2,7 @@
 <?php
 
 // 1. linija ------------------------
-$line = str_repeat('*', 400);
+$line = str_repeat('*', 400); //kartoja stringa
 
 $chunks = str_split($line, 50);
 
@@ -11,55 +11,121 @@ foreach ($chunks as $chunk) {
 }
 echo'<br><br><br>';
 
-// 2. atsitiktiniai skaiciai ------------------------
-$skaiciaiSuTarpais = 0;
-for ($i=0; $i < 300; $i++) { 
+// 2. atsitiktiniai skaiciai ------------nepavyko nuspalvinti raudonai------------
+    $skaiciaiSuTarpais = "";
+    $counter = 0;
+    for ($i=0; $i < 300; $i++) { 
     $atsitiktinisSkaicius = rand(0, 300);
-    $skaiciaiSuTarpais = $skaiciaiSuTarpais . " " . $atsitiktinisSkaicius;
-    echo $atsitiktinisSkaicius;
-}
-$counter = 0;
-for ($i = 0; $i < 300; $i++) {
-    $randomNumber = rand(0, 300);
-    if($randomNumber > 275) {
+    $skaiciaiSuTarpais .= ' '. $atsitiktinisSkaicius;
+    
+    if($atsitiktinisSkaicius > 275) {
         $color = 'red';
     } else {
         $color = 'black';
     };
-    if ($randomNumber > 150) {
+    if ($atsitiktinisSkaicius > 150) {
         $counter++;
     }
-        echo "<span style=\"color: $color;\">$randomNumber</span><br>";
-    }
+}
+    echo "Atsitiktiniai skaiciai: $skaiciaiSuTarpais";
+    echo "<span style=\"color: $color;\">$atsitiktinisSkaicius</span><br>";
     echo "Didesniu uz 150 skaiciu yra: $counter <br><br>";
 
-    // V2 --------------
+    echo '<br>';
 
-//     // Function to generate a random number between 0 and 300
-// function generateRandomNumber() {
-//     return rand(0, 300);
-// }
 
-// // Generate 300 random numbers
-// $numbers = array_map('generateRandomNumber', range(1, 300));
+    // 3. skaiciai nuo 1
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+    <title>PHP Random Numbers</title>
+</head>
+<body>
+    <?php
+        // Function to check if a number is divisible by 77 without remainder
+        function isDivisibleBy77($number) {
+            return $number % 77 === 0;
+        }
 
-// // Count the numbers greater than 150
-// $countGreaterThan150 = count(array_filter($numbers, function ($number) {
-//     return $number > 150;
-// }));
+        // Generate a random number between 3000 and 4000
+        $randomNumber = rand(3000, 4000);
 
-// // Output the numbers separated by spaces
-// echo implode(' ', $numbers);
+        // Display the random number
+        echo "<p>Random number: $randomNumber</p>";
 
-// // Output the count of numbers greater than 150
-// echo "\nCount of numbers greater than 150: " . $countGreaterThan150;
+        // Array to store numbers divisible by 77
+        $divisibleBy77Array = array();
 
-// // Output the numbers greater than 275 in red
-// echo "\nNumbers greater than 275: ";
-// foreach ($numbers as $number) {
-//     if ($number > 275) {
-//         echo "\033[0;31m$number\033[0m "; // Display in red
-//     } else {
-//         echo "$number ";
-//     }
-// }
+        // Check numbers from 1 to the random number
+        for ($i = 1; $i <= $randomNumber; $i++) {
+            if (isDivisibleBy77($i)) {
+                $divisibleBy77Array[] = $i;
+            }
+        }
+
+        // Print the result with commas
+        $result = implode(', ', $divisibleBy77Array);
+        echo "<p>Numbers divisible by 77: $result</p>";
+    ?>
+</body>
+</html>
+
+// if (i % 77 == 0) return i else return null;
+
+
+echo '<br>';
+// 4. uzdavinys
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .square {
+            font-size: 20px; /* Adjust font size as needed */
+            line-height: 0.5; /* Adjust line height for proper spacing */
+        }
+    </style>
+    <title>PHP Square Drawing</title>
+</head>
+<body>
+    <?php
+        // Function to draw a square of asterisks
+        function drawSquare($size) {
+            for ($i = 0; $i < $size; $i++) {
+                for ($j = 0; $j < $size; $j++) {
+                    echo '*';
+                }
+                echo '<br>';
+            }
+        }
+
+        // Set the size of the square
+        $squareSize = 100;
+
+        // Display the square
+        echo '<div class="square">';
+        drawSquare($squareSize);
+        echo '</div>';
+    ?>
+</body>
+</html>
