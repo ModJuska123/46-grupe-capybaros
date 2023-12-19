@@ -15,7 +15,7 @@ file_put_contents(__DIR__ . '/animals.json', $json);
 
 $getJson = file_get_contents(__DIR__ . '/animals.json');
 
-$data = json_decode($getJson);
+$data = json_decode($getJson, true);       //galima naudoti json_
 
 foreach ($data as $animal) {
     echo $animal . '<br>';
