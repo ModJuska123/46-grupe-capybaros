@@ -9,20 +9,20 @@ print_r($animals);
 
                 // $animals[301] = 'Good ' . $animals[1];
 
-// $json = json_encode($animals, JSON_PRETTY_PRINT);
+$json = json_encode($animals, JSON_PRETTY_PRINT);
 
-// file_put_contents(__DIR__ . '/animals.json', $json);
+file_put_contents(__DIR__ . '/animals.json', $json);
 
-// $getJson = file_get_contents(__DIR__ . '/animals.json');
+$getJson = file_get_contents(__DIR__ . '/animals.json');
 
-// $data = json_decode($getJson);
+$data = json_decode($getJson);
 
-// foreach ($data as $animal) {
-//     echo $animal . '<br>';
-// }
-// $copy = array_map(function($item) {
-//     return $item;
-// }, $data);
+foreach ($data as $animal) {
+    echo $animal . '<br>';
+}
+$copy = array_map(function($item) {
+    return $item;
+}, $data);
 
 
 print_r($copy);
