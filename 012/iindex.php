@@ -55,14 +55,14 @@
         <button type="submit">POST IT</button>
     </form>
 
-    <!-- <form action="http://localhost/capybaros/012/" method="get">
+    <!-- <form action="http://localhost/capybaros/012/" method="get">  //klases darbas
         <input type="text" name="kas">
         <input type="color" name="kitas">
         <input type="hidden" name="a" value="5">
         <button type="submit">GET IT</button>
     </form>
 
-    <form action="http://localhost/capybaros/012/?z=88" method="post">
+    <form action="http://localhost/capybaros/012/?z=88" method="post"> //klases darbas
         <input type="text" name="kas">
         <input type="color" name="kitas">
         <input type="hidden" name="a" value="5">
