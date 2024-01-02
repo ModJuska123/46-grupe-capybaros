@@ -28,6 +28,9 @@
                 <div class="col-2">
                     <b>Sąskaitos Nr.</b>
                 </div>
+                <div class="col-6">
+                    <b>Kt.</b>
+                </div>
             </div>
         </div>
     </li>
