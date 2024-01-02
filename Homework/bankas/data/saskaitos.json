@@ -1,56 +1,47 @@
 [
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044041874940628"
+        "vardas_pavarde": 1,
+        "iban": "LT897044053726839317"
     },
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044088661027530"
+        "vardas_pavarde": 1,
+        "iban": "LT897044029833111842"
     },
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044082749095324"
+        "vardas_pavarde": 1,
+        "iban": "LT897044093567228205"
     },
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044056380778857"
+        "vardas_pavarde": 1,
+        "iban": "LT897044079061004341"
     },
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044060958940243"
+        "vardas_pavarde": 1,
+        "iban": "LT897044021952216741"
     },
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044016956147759"
+        "vardas_pavarde": 1,
+        "iban": "LT897044037513879115"
     },
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044015570102526"
+        "vardas_pavarde": 1,
+        "iban": "LT897044099073429554"
     },
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044049712913433"
+        "vardas_pavarde": 1,
+        "iban": "LT897044057261994180"
     },
     {
         "akID": 1,
-        "vardas": 1,
-        "pavarde": 1,
-        "iban": "LT897044039164019500"
+        "vardas_pavarde": 1,
+        "iban": "LT897044043878608972"
     }
 ]
