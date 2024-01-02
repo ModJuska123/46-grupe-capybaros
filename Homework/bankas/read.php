@@ -28,8 +28,8 @@
                 <div class="col-2">
                     <b>Sąskaitos Nr.</b>
                 </div>
-                <div class="col-6">
-                    <b>Kt.</b>
+                <div class="col-2">
+                    <b>Lėšų suma</b>
                 </div>
             </div>
         </div>
@@ -48,6 +48,9 @@
                     </div>
                     <div class="col-2">
                         <?= $asmens_duomuo["iban"] ?>
+                    </div>
+                    <div class="col-2">
+                        0 EUR
                     </div>
                     </div>
                 </div>
