@@ -1,0 +1,12 @@
+<?php
+
+class Pinigine {
+    private $popiriniaiPinigai;
+    private $metaliniaiPinigai;
+
+    function ideti($kiekis) {
+        
+    }
+}
+
+?>

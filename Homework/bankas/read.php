@@ -7,15 +7,10 @@
     <title>Read</title>
 </head>
 <body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <span class="navbar-text">
-                <b>Navbar</b>
-            </span>
-        </div>
-    </nav>
 
-    <ul class="list-group list-group-flush mt-5">
+    <?php require __DIR__ . '/parts/nav.php'?> 
+
+    <ul class="list-group list-group-flush mt-2">
     <li class="list-group-item">
         <div class="container text-center">
             <div class="row">
@@ -31,6 +26,9 @@
                 <div class="col-2">
                     <b>Lėšų suma</b>
                 </div>
+                <div class="col-2">
+                    <b>Nuorodos</b>
+                </div>
             </div>
         </div>
     </li>
@@ -44,13 +42,16 @@
                         <?= $asmens_duomuo["vardas_pavarde"] ?>
                     </div>
                     <div class="col-2">
-                        <?= $asmens_duomuo["akID"] ?>
+                        <?= $asmens_duomuo["akId"] ?>
                     </div>
                     <div class="col-2">
                         <?= $asmens_duomuo["iban"] ?>
                     </div>
                     <div class="col-2">
                         0 EUR
+                    </div>
+                    <div class="col-2">
+                        <a href="http://localhost/capybaros/homework/bankas/show.php?id=</= $asmens_duomuo['akId'] ?>" class="btn btn-outline-success btn-sm">Show</a>
                     </div>
                     </div>
                 </div>
