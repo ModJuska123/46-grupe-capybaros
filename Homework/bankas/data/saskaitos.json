@@ -1,81 +1,26 @@
 [
     {
-        "akId": 30333603098,
+        "akId": 74394246977,
         "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044085808659929",
+        "iban": "LT897044035624535166",
         "lesu_suma": 0
     },
     {
-        "akId": 64985599806,
+        "akId": 64842787903,
         "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044030911463612",
+        "iban": "LT897044073289443467",
         "lesu_suma": 0
     },
     {
-        "akId": 96813480683,
+        "akId": 21851338585,
         "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044087041018457",
+        "iban": "LT897044091354856005",
         "lesu_suma": 0
     },
     {
-        "akId": 46219437432,
+        "akId": 32882726335,
         "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044050212250759",
+        "iban": "LT897044016017036431",
         "lesu_suma": 0
-    },
-    {
-        "akId": 49705975703,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044083626432914",
-        "lesu_suma": 0
-    },
-    {
-        "akId": 67339545064,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044090772323294",
-        "lesu_suma": 0
-    },
-    {
-        "akId": 93679380962,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044014660583243",
-        "lesu_suma": 0
-    },
-    {
-        "akId": 15295930804,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044079836338254",
-        "lesu_suma": 0
-    },
-    {
-        "akId": 15271635095,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044080349262855",
-        "lesu_suma": 0
-    },
-    {
-        "akId": null,
-        "iban": "LT897044021829002291",
-        "vardas_pavarde": "gdsgfd hdfsh"
-    },
-    {
-        "akId": null,
-        "iban": "LT897044043876204326",
-        "vardas_pavarde": "xczv zxvcv"
-    },
-    {
-        "akId": null,
-        "iban": "LT897044048896224701",
-        "vardas_pavarde": "Antanas Antanaitis"
-    },
-    {
-        "akId": "4435354354354",
-        "iban": "LT897044044012814512",
-        "vardas_pavarde": "Ona Onutien\u0117"
-    },
-    {
-        "akId": "34368114339",
-        "iban": "LT897044097000291338",
-        "vardas_pavarde": "Kiulkis Kiulkevi\u010dius"
     }
 ]

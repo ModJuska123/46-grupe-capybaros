@@ -62,6 +62,8 @@
                     </div>
                     <div class="col-2">
                         <a href="http://localhost/capybaros/homework/bankas/show.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-success btn-sm">Show</a>
+                        <a href="http://localhost/capybaros/homework/bankas/edit.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-info btn-sm">Edit</a>
+                        <a href="http://localhost/capybaros/homework/bankas/delete.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-danger btn-sm">Delete</a>
                     </div>
                     </div>
                 </div>
