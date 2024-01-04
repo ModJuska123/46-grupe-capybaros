@@ -12,18 +12,18 @@
 
     <?php
     $id = $_GET['id'] ?? 0;
+    var_dump('$id');
     $asmens_duomenys = json_decode(file_get_contents(__DIR__ . '/data/saskaitos.json'), true);
     $asmens_duomuo = null;
     foreach ($asmens_duomenys as $item) {
         if ($item['akId'] == $id) {
-            $asmens_duomuo == $item;
+            $asmens_duomuo = $item;
             break;
         }
     }
     ?>
 
-    <?php if (!$asmens_duomuo) : ?>
-    var_dump ($asmens_duomuo);
+<?php if (!$asmens_duomuo) : ?>
         <div class="container mt-5">
             <div class="row">
                 <div class="coll">
@@ -43,7 +43,7 @@
                     <h2>Edit</h2>
                     <div class="card";>
                         <div class="card-body">
-                           <form action="http://localhost/capybaros/homework/bankas/update.php?id=<?=$_GET["id"] ?? 0?>" method="post">
+                           <form action="http://localhost/capybaros/homework/bankas/update.php?id=<?=$_GET["id"] ?? 0 ?>" method="post">
                                 <div class="mb-3">
                                     <label class="form-label">Lesos: </label>
                                     <input type="range" class="form-range" name="lesos" min="0" max="1000" value="<?= $asmens_duomuo['lesu_suma'] ?>">

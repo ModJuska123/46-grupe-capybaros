@@ -22,5 +22,10 @@
         "vardas_pavarde": "Petras Petraitis",
         "iban": "LT897044016017036431",
         "lesu_suma": 0
+    },
+    {
+        "akId": "4435354354354",
+        "iban": "LT897044095665543193",
+        "vardas_pavarde": "Antanas Antanaitis"
     }
 ]
