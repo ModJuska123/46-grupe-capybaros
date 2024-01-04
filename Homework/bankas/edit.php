@@ -23,41 +23,33 @@
     ?>
 
     <?php if (!$asmens_duomuo) : ?>
-
+    var_dump ($asmens_duomuo);
         <div class="container mt-5">
             <div class="row">
                 <div class="coll">
                     <h2>Edit</h2>
-                    <div class="aler aler-danger" role="alert">
-                        Sąskaita nerasta 
+                    <div class="alert alert-danger" role="alert">
+                        Sąskaita nerasta !!!
                     </div>
                 </div>
             </div>
         </div>
 
-        <?php else: ?>
+    <?php else: ?>
 
     <div class="container mt-5">
             <div class="row">
                 <div class="col">
-                    <h2>Create</h2>
+                    <h2>Edit</h2>
                     <div class="card";>
                         <div class="card-body">
-                           <form action="http://localhost/capybaros/homework/bankas/update.php?id=<?=$_GET["id"] ?? 0?>" method=post>
+                           <form action="http://localhost/capybaros/homework/bankas/update.php?id=<?=$_GET["id"] ?? 0?>" method="post">
                                 <div class="mb-3">
-                                    <label for="formGroupExampleInput" class="form-label">Vardas Pavardė</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" name="vardas_pavarde">
+                                    <label class="form-label">Lesos: </label>
+                                    <input type="range" class="form-range" name="lesos" min="0" max="1000" value="<?= $asmens_duomuo['lesu_suma'] ?>">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="formGroupExampleInput2" class="form-label">Asmens kodas</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput2" name="akId">
-                                </div>
-                                <button type="submit" class="btn btn-outline-primary">Create</button>
-
+                                <button type="submit" class="btn btn-outline-primary">Edit</button>
                            </form>
-
-
-
                         </div>
                     </div>
                 </div>

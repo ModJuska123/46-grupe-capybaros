@@ -58,7 +58,7 @@
                         <?= $asmens_duomuo["iban"] ?>
                     </div>
                     <div class="col-2">
-                        0 EUR
+                        <?= $asmens_duomuo["lesu_suma"] ?>
                     </div>
                     <div class="col-2">
                         <a href="http://localhost/capybaros/homework/bankas/show.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-success btn-sm">Show</a>
