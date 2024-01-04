@@ -14,7 +14,7 @@
         $id = $_GET['id'] ?? 0;
         $asmens_duomenys = json_decode(file_get_contents(__DIR__ . '/data/saskaitos.json'), true);
         $asmens_duomuo = null;
-        foreach ($asmens_duomenys as $item) {
+            foreach ($asmens_duomenys as $item) {
             if ($item['akId'] == $id) {
                $asmens_duomuo = $item;
                break;
@@ -23,25 +23,37 @@
     ?>
 
     <?php if (!$asmens_duomuo) : ?>
-        <div class="alert alert-danger" role="alert">
-           Asmens duomuo nerastas!
-        </div>
 
-    <?php else: ?>         
-
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-2">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Asmens domuo<?= $asmens_duomuo['akID'] ?></h5>
-                    <p class="card-text">Vardas Pavarde<?= $asmens_duomuo['vardas_pavarde'] ?></p>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <h2>Show</h2>
+                    <div class="aler-aler-danger" role="alert">
+                        Asmens domuo nerastas!
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <?php else: ?>
+      
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <h2>Show</h2>
+                    <div class="card";>
+                        <div class="card-body">
+                            <h6 class="card-text">Vardas Pavarde: <?= $asmens_duomuo['vardas_pavarde'] ?></h6>
+                            <p class="card-title">Asmens kodas: <?= $asmens_duomuo['akId'] ?></p>
+                            <p class="card-title">IBAN: <?= $asmens_duomuo['iban'] ?></p>
+                            <p class="card-title">Lėšų suma (EUR): <?= $asmens_duomuo['lesu_suma'] ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <?php endif ?>
-
+    
 </body>
 </html>

@@ -9,6 +9,16 @@
 <body>
 
     <?php require __DIR__ . '/parts/nav.php'?> 
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-2">
+                <h2>Read</h2>
+            </div>
+        </div>
+    </div>
+
+
+        
 
     <ul class="list-group list-group-flush mt-2">
     <li class="list-group-item">
@@ -51,7 +61,7 @@
                         0 EUR
                     </div>
                     <div class="col-2">
-                        <a href="http://localhost/capybaros/homework/bankas/show.php?id=</= $asmens_duomuo['akId'] ?>" class="btn btn-outline-success btn-sm">Show</a>
+                        <a href="http://localhost/capybaros/homework/bankas/show.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-success btn-sm">Show</a>
                     </div>
                     </div>
                 </div>

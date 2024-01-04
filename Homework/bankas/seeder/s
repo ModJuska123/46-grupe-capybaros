@@ -13,9 +13,11 @@ $asmens_duomenys = [];
 
 for ($i = 1; $i < 10; $i++) {
     $asmens_duomenys[] = [
-        "akId" => 1, 
-        "vardas_pavarde" => 1,
+        "akId" => rand(10000000000, 99999999999), 
+        "vardas_pavarde" => "Petras Petraitis",
         "iban" => "LT8970440" . rand(10000000000, 99999999999),
+        "lesu_suma" => 0,
+
     ];
 }
 
