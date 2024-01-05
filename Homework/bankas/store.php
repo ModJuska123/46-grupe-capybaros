@@ -8,10 +8,10 @@ $lesu_suma = $_POST['lesu_suma'] ?? 0;
 
 $asmens_duomenys = json_decode(file_get_contents(__DIR__ . '/data/saskaitos.json'), true);
 $asmens_duomenys[] = [
-    'akId'=>$akId,
-    'iban'=>$iban,
-    'vardas_pavarde'=>$vardas_pavarde,
-    'lesu_suma'=>$lesu_suma,
+    'akId' => $akId,
+    'iban' => $iban,
+    'vardas_pavarde' => $vardas_pavarde,
+    'lesu_suma' => (int) $lesu_suma,
 
 ];
 

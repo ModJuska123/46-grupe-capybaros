@@ -11,7 +11,7 @@
     <?php require __DIR__ . '/parts/nav.php' ?> 
 
     <?php
-    $id = $_GET['id'] ?? 0; //as keeiciau i post
+    $id = $_GET['id'] ?? 0; 
     $asmens_duomenys = json_decode(file_get_contents(__DIR__ . '/data/saskaitos.json'), true);
     $asmens_duomuo = null;
     foreach ($asmens_duomenys as $item) {
@@ -45,9 +45,9 @@
                            <form action="http://localhost/capybaros/homework/bankas/update_minus.php?id=<?=$_GET["id"] ?? 0 ?>" method="post">
                                 <div class="mb-3">
                                     <label class="form-label">Lesos: </label>
-                                    <input type="range" class="form-range" name="lesos" min="0" max="1000" value="<?= $asmens_duomuo['lesu_suma'] ?>">
+                                    <input type="range" class="form-range" name="lesu_suma" min="0" max="1000" value="<?= $asmens_duomuo['lesu_suma'] ?>">
                                 </div>
-                                <button type="submit" class="btn btn-outline-primary">Edit</button>
+                                <button type="submit" class="btn btn-outline-primary">Nuskaičiuoti</button>
                            </form>
                         </div>
                     </div>
