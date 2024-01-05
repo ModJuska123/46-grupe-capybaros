@@ -12,7 +12,6 @@
 
     <?php
     $id = $_GET['id'] ?? 0;
-    var_dump('$id');
     $asmens_duomenys = json_decode(file_get_contents(__DIR__ . '/data/saskaitos.json'), true);
     $asmens_duomuo = null;
     foreach ($asmens_duomenys as $item) {

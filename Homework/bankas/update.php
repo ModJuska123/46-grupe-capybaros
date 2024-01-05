@@ -1,7 +1,8 @@
 <?php
 
 $id = $_GET['id'] ?? 0;
-print_r('$id'); 
+
+var_dump('$id');
 if (!$id) {
     header("Location: http://localhost/capybaros/homework/bankas/read.php");
     exit;
