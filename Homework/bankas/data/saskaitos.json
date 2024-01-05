@@ -22,23 +22,5 @@
         "vardas_pavarde": "Petras Petraitis",
         "iban": "LT897044016017036431",
         "lesu_suma": 0
-    },
-    {
-        "akId": "3435354354354",
-        "iban": "LT897044040149047117",
-        "vardas_pavarde": "Kiulkis Kiulkevicius",
-        "lesu_suma": 0
-    },
-    {
-        "akId": "44300111014",
-        "iban": "LT897044064825478868",
-        "vardas_pavarde": "Ona Onutien\u0117",
-        "lesu_suma": 0
-    },
-    {
-        "akId": "3435354354354",
-        "iban": "LT897044067670207466",
-        "vardas_pavarde": "Antanas Antanaitis",
-        "lesu_suma": 0
     }
 ]

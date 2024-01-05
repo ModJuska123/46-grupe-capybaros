@@ -1,7 +1,6 @@
 <?php
 
 $id = $_POST['id'] ?? 0; 
-// var_dump($_POST['id']);
 if (!$id) {
     header("Location: http://localhost/capybaros/homework/bankas/read.php");
     exit;

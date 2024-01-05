@@ -42,7 +42,7 @@
                     <h2>Edit</h2>
                     <div class="card";>
                         <div class="card-body">
-                           <form action="http://localhost/capybaros/homework/bankas/update.php?id=<?=$_GET["id"] ?? 0 ?>" method="post">
+                           <form action="http://localhost/capybaros/homework/bankas/update_minus.php?id=<?=$_GET["id"] ?? 0 ?>" method="post">
                                 <div class="mb-3">
                                     <label class="form-label">Lesos: </label>
                                     <input type="range" class="form-range" name="lesos" min="0" max="1000" value="<?= $asmens_duomuo['lesu_suma'] ?>">
