@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $id = $_GET['id'] ?? 0; 
 if (!$id) {
     header("Location: http://localhost/capybaros/homework/delete/read.php");
