@@ -15,12 +15,11 @@ if (isLithuanianPersonalCodeValid($akId)) {                              // ak v
     exit;
 }
 
-$id = $_GET['id'] ?? 0;
+$id = $_GET['id'] ?? 0; // dvieju akId atmewtimas
 $asmens_duomenys = json_decode(file_get_contents(__DIR__ . '/data/saskaitos.json'), true);
 $asmens_duomuo = null;
 foreach ($asmens_duomenys as $item) {
     if ($item['akId'] == $id) {
-        $asmens_duomuo = $item;
         break;
     }
 }
