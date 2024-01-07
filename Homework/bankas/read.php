@@ -62,8 +62,8 @@
                     </div>
                     <div class="col-4">
                         <a href="http://localhost/capybaros/homework/bankas/show.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-success btn-sm">Rodyti</a>
-                        <a href="http://localhost/capybaros/homework/bankas/edit.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-info btn-sm">Pridėti lėšų</a>
-                        <a href="http://localhost/capybaros/homework/bankas/edit_minus.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-info btn-sm">Nuskaičiuoti lėšas</a>
+                        <a href="http://localhost/capybaros/homework/bankas/edit.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-primary btn-sm">Pridėti</a>
+                        <a href="http://localhost/capybaros/homework/bankas/edit_minus.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-secondary btn-sm">Nuskaičiuoti</a>
                         <a href="http://localhost/capybaros/homework/bankas/delete.php?id=<?= $asmens_duomuo['akId'] ?>" class="btn btn-outline-danger btn-sm">Ištrinti</a>
                     </div>
                     </div>

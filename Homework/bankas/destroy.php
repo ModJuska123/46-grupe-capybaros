@@ -4,7 +4,7 @@ $id = $_GET['id'] ?? 0;
 
 $asmens_duomenys = json_decode(file_get_contents(__DIR__ . '/data/saskaitos.json'), true);
 foreach ($asmens_duomenys as $index => $asmens_duomuo) {
-    if ($asmens_duomuo['akId'] == $id) {
+    if ($asmens_duomuo['akId'] == $id && $asmens_duomuo['lesu_suma'] === 0) {
         unset($asmens_duomenys[$index]);
         break;
     }

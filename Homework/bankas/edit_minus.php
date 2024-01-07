@@ -44,10 +44,10 @@
                         <div class="card-body">
                            <form action="http://localhost/capybaros/homework/bankas/update_minus.php?id=<?=$_GET["id"] ?? 0 ?>" method="post">
                                 <div class="mb-3">
-                                    <label class="form-label">Lesos: </label>
-                                    <input type="range" class="form-range" name="lesu_suma" min="0" max="1000" value="<?= $asmens_duomuo['lesu_suma'] ?>">
+                                    <label class="form-label">Nuo sąskaitos nuimamos lėšos:</label>
+                                    <input type="range" class="form-range" name="lesu_suma" min="0" max="<?= $asmens_duomuo['lesu_suma']; ?>" value="<?= $asmens_duomuo['lesu_suma'] ?>">
                                 </div>
-                                <button type="submit" class="btn btn-outline-primary">Nuskaičiuoti</button>
+                                <button type="submit" class="btn btn-outline-info">Nuskaičiuoti</button>
                            </form>
                         </div>
                     </div>
