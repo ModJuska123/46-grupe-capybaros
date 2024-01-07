@@ -18,45 +18,69 @@
         }
     },
     {
-        "akId": 20229608849,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044091741365194",
-        "lesu_suma": 0
-    },
-    {
         "akId": 81532615956,
         "vardas_pavarde": "Petras Petraitis",
         "iban": "LT897044064291026500",
         "lesu_suma": 0
     },
     {
-        "akId": 57032491647,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044096903937053",
+        "akId": "3435354354354",
+        "iban": "LT897044040376882616",
+        "vardas_pavarde": "Ona Onutien\u0117",
         "lesu_suma": 0
     },
     {
-        "akId": 48689861818,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044051354903950",
+        "akId": "3435354354354",
+        "iban": "LT897044090555694064",
+        "vardas_pavarde": "Kiulkis Kiulkevi\u010dius",
         "lesu_suma": 0
     },
     {
-        "akId": 58136402846,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044067018212006",
+        "akId": "34477100001",
+        "iban": "LT897044092044275894",
+        "vardas_pavarde": "Kiulkis Kiulkevi\u010dius",
         "lesu_suma": 0
     },
     {
-        "akId": 74141509899,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044068319657134",
+        "akId": "3435354354354",
+        "iban": "LT897044073154531116",
+        "vardas_pavarde": "Antanas Antanaitis",
         "lesu_suma": 0
     },
     {
-        "akId": 36221998304,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044015482394738",
+        "akId": "44300111014",
+        "iban": "LT897044081997071299",
+        "vardas_pavarde": "Zita Zituvien\u0117",
+        "lesu_suma": 0
+    },
+    {
+        "akId": "3435354354354",
+        "iban": "LT897044016303099224",
+        "vardas_pavarde": "Apolinaras Antanaitis",
+        "lesu_suma": 0
+    },
+    {
+        "akId": "60204058108",
+        "iban": "LT897044091449325449",
+        "vardas_pavarde": "Ona Onutien\u0117",
+        "lesu_suma": 0
+    },
+    {
+        "akId": "46809118873",
+        "iban": "LT897044018710774097",
+        "vardas_pavarde": "Melija Karsurtait\u0117",
+        "lesu_suma": 0
+    },
+    {
+        "akId": "50011118668",
+        "iban": "LT897044098617135111",
+        "vardas_pavarde": "Petras Konsontinas",
+        "lesu_suma": 0
+    },
+    {
+        "akId": "44702249513",
+        "iban": "LT897044028955181066",
+        "vardas_pavarde": "Modestas Ju\u0161kevi\u010dius",
         "lesu_suma": 0
     }
 ]

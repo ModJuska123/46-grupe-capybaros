@@ -13,7 +13,7 @@ function wrapInH1Tag($text) {     // Escape the text to prevent XSS attacks
 }
 
 // Example usage:
-$textToInsert = "Hello, World!";
+$textToInsert = "Labas!";
 $resultingHTML = wrapInH1Tag($textToInsert);
 
 echo $resultingHTML;

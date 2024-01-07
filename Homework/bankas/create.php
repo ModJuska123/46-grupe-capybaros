@@ -6,11 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="http://localhost/capybaros/homework/bankas/app.js" defer></script>
     <title>Create</title>
 </head>
 <body>
 
     <?php require __DIR__ . '/parts/nav.php' ?> 
+    <?php require __DIR__ . '/parts/msg.php' ?> 
 
     <div class="container mt-5">
             <div class="row">

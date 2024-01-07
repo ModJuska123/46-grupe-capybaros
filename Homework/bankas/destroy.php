@@ -16,4 +16,6 @@ $asmens_duomenys = array_values($asmens_duomenys);
 
 file_put_contents(__DIR__ . '/data/saskaitos.json', json_encode($asmens_duomenys, JSON_PRETTY_PRINT));
 
+$_SESSION['error'] = "Asmens, kurio a.k.: #$id sąskaita ištrinta";
+
 header('Location: http://localhost/capybaros/homework/bankas/read.php');

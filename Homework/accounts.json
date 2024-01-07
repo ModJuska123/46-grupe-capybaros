@@ -1,0 +1,16 @@
+[
+    {
+        "name": "John",
+        "surname": "Doe",
+        "personal_code": "12345678901",
+        "iban": "LT1200002997523815791",
+        "balance": 0
+    },
+    {
+        "name": "Modestas",
+        "surname": "Juska",
+        "personal_code": "12345677896",
+        "iban": "LT1200002557543356666",
+        "balance": 0
+    }
+]
