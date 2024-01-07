@@ -88,9 +88,9 @@
                     <div class="col-2">
                         <?= $asmens_duomuo["akId"] ?>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2" readonly>
                         <?= $asmens_duomuo["iban"] ?>
-                    </div>
+                        </div>
                     <div class="col-2">
                         <?= $asmens_duomuo["lesu_suma"] ?>
                     </div>

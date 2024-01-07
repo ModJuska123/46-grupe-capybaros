@@ -23,13 +23,13 @@
                            <form action="http://localhost/capybaros/homework/bankas/store.php" method=post>
                                 <div class="mb-3">
                                     <label for="formGroupExampleInput" class="form-label">Vardas Pavardė</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" name="vardas_pavarde">
+                                    <input type="text" class="form-control" name="vardas_pavarde">
                                 </div>
                                 <div class="mb-3">
                                     <label for="formGroupExampleInput2" class="form-label">Asmens kodas</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput2" name="akId">
+                                    <input type="text" class="form-control" name="akId">
                                 </div>
-                                <button type="submit" class="btn btn-outline-primary">Create</button>
+                                <button type="submit" class="btn btn-outline-primary">Sukurti</button>
                            </form>
                         </div>
                     </div>

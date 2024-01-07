@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="http://localhost/capybaros/homework/bankas/app.js" defer></script>
     <title>Edit</title>
 </head>
 <body>
@@ -47,8 +48,8 @@
                         <div class="card-body">
                            <form action="http://localhost/capybaros/homework/bankas/update.php?id=<?=$_GET["id"] ?? 0 ?>" method="post";>
                                 <div class="mb-3">
-                                    <label class="form-label">Prie sąskaitos pridedamos lėšos: </label>
-                                    <input type="range" class="form-range" min="<?= $asmens_duomuo['lesu_suma']; ?>" max="100000" name="lesu_suma" value="<?= $asmens_duomuo['lesu_suma']; ?>">
+                                    <label class="form-label">Prie sąskaitos pridedamos lėšos: <span id="lesu_suma"></span></label>
+                                    <input type="range" class="form-range" min="<?= $asmens_duomuo['lesu_suma']; ?>" max="1000" name="lesu_suma" value="<?= $asmens_duomuo['lesu_suma']; ?>">
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary">Pridėti lėšų</button>
                            </form>
