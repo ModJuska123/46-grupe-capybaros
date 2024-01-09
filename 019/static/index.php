@@ -6,9 +6,9 @@ require __DIR__ . '/Vaikas.php';
 
 
 
-Vaikas::kaSkrolinaVaikas();
+// Vaikas::kaSkrolinaVaikas();
 
 Vaikas::kaSkrolinaTevukas();
 
 
-Tevas::kaSkrolinaTevukas();
+// Tevas::kaSkrolinaTevukas();

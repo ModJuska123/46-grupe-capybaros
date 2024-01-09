@@ -7,7 +7,7 @@ class Cart {
 
 
     public static function getCart() {
-        return self::$cartObject ?? self::$cartObject = new self;
+        return self::$cartObject ?? self::$cartObject = new self; //esme cia......
     }
 
     private function __construct() {
