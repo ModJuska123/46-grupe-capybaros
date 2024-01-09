@@ -1,119 +1,5 @@
 [
     {
-        "akId": 80326429109,
-        "vardas_pavarde": "Petras Petraitis",
-        "iban": "LT897044035004680792",
-        "lesu_suma": 996,
-        "0": {
-            "akId": 80326429109,
-            "vardas_pavarde": "Petras Petraitis",
-            "iban": "LT897044035004680792",
-            "lesu_suma": 996,
-            "0": {
-                "akId": 80326429109,
-                "vardas_pavarde": "Petras Petraitis",
-                "iban": "LT897044035004680792",
-                "lesu_suma": 827,
-                "0": {
-                    "akId": 80326429109,
-                    "vardas_pavarde": "Petras Petraitis",
-                    "iban": "LT897044035004680792",
-                    "lesu_suma": 13568,
-                    "0": {
-                        "akId": 80326429109,
-                        "vardas_pavarde": "Petras Petraitis",
-                        "iban": "LT897044035004680792",
-                        "lesu_suma": 1353,
-                        "0": {
-                            "akId": 80326429109,
-                            "vardas_pavarde": "Petras Petraitis",
-                            "iban": "LT897044035004680792",
-                            "lesu_suma": 7473,
-                            "0": {
-                                "akId": 80326429109,
-                                "vardas_pavarde": "Petras Petraitis",
-                                "iban": "LT897044035004680792",
-                                "lesu_suma": 4239,
-                                "0": {
-                                    "akId": 80326429109,
-                                    "vardas_pavarde": "Petras Petraitis",
-                                    "iban": "LT897044035004680792",
-                                    "lesu_suma": 29343,
-                                    "0": {
-                                        "akId": 80326429109,
-                                        "vardas_pavarde": "Petras Petraitis",
-                                        "iban": "LT897044035004680792",
-                                        "lesu_suma": 29343,
-                                        "0": {
-                                            "akId": 80326429109,
-                                            "vardas_pavarde": "Petras Petraitis",
-                                            "iban": "LT897044035004680792",
-                                            "lesu_suma": 29343,
-                                            "0": {
-                                                "akId": 80326429109,
-                                                "vardas_pavarde": "Petras Petraitis",
-                                                "iban": "LT897044035004680792",
-                                                "lesu_suma": 29343,
-                                                "0": {
-                                                    "akId": 80326429109,
-                                                    "vardas_pavarde": "Petras Petraitis",
-                                                    "iban": "LT897044035004680792",
-                                                    "lesu_suma": 27646,
-                                                    "0": {
-                                                        "akId": 80326429109,
-                                                        "vardas_pavarde": "Petras Petraitis",
-                                                        "iban": "LT897044035004680792",
-                                                        "lesu_suma": 49531
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    },
-    {
-        "akId": "3435354354354",
-        "iban": "LT897044040376882616",
-        "vardas_pavarde": "Ona Onutien\u0117",
-        "lesu_suma": 831,
-        "2": {
-            "akId": "3435354354354",
-            "iban": "LT897044040376882616",
-            "vardas_pavarde": "Ona Onutien\u0117",
-            "lesu_suma": 831,
-            "2": {
-                "akId": "3435354354354",
-                "iban": "LT897044040376882616",
-                "vardas_pavarde": "Ona Onutien\u0117",
-                "lesu_suma": 784,
-                "2": {
-                    "akId": "3435354354354",
-                    "iban": "LT897044040376882616",
-                    "vardas_pavarde": "Ona Onutien\u0117",
-                    "lesu_suma": 723,
-                    "2": {
-                        "akId": "3435354354354",
-                        "iban": "LT897044040376882616",
-                        "vardas_pavarde": "Ona Onutien\u0117",
-                        "lesu_suma": 655,
-                        "2": {
-                            "akId": "3435354354354",
-                            "iban": "LT897044040376882616",
-                            "vardas_pavarde": "Ona Onutien\u0117",
-                            "lesu_suma": 473
-                        }
-                    }
-                }
-            }
-        }
-    },
-    {
         "akId": "44300111014",
         "iban": "LT897044081997071299",
         "vardas_pavarde": "Zita Zituvien\u0117",
@@ -141,12 +27,24 @@
         "akId": "44702249513",
         "iban": "LT897044028955181066",
         "vardas_pavarde": "Modestas Ju\u0161kevi\u010dius",
-        "lesu_suma": 229,
+        "lesu_suma": 440,
         "9": {
             "akId": "44702249513",
             "iban": "LT897044028955181066",
             "vardas_pavarde": "Modestas Ju\u0161kevi\u010dius",
             "lesu_suma": 229
+        },
+        "4": {
+            "akId": "44702249513",
+            "iban": "LT897044028955181066",
+            "vardas_pavarde": "Modestas Ju\u0161kevi\u010dius",
+            "lesu_suma": 440,
+            "9": {
+                "akId": "44702249513",
+                "iban": "LT897044028955181066",
+                "vardas_pavarde": "Modestas Ju\u0161kevi\u010dius",
+                "lesu_suma": 229
+            }
         }
     },
     {
