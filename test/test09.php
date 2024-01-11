@@ -1,51 +1,33 @@
-<?php declare(strict_types=1);
- 
-namespace DesignPatterns\Structural\Adapter;
- 
-interface Book
-{
-    public function turnPage();
- 
-    public function open();
- 
-    public function getPage(): int;
-    }
-
-
-class PaperBook implements Book
-{
-    private int $page;
- 
-    public function open()
-    {
-        $this->page = 1;
-        echo('labas');
-    }
- 
-    public function turnPage()
-    {
-        $this->page++;
-    }
- 
-    public function getPage(): int
-    {
-        return $this->page;
-    }
+trait Logger {
+public function log($logString) {
+$className = __CLASS__;
+echo date("Y-m-d h:i:s", time()) . ": [{$className}]
+{$logString}";
 }
-
-
-interface EBook
-{
-    public function unlock();
- 
-    public function pressNext();
- 
-    /**
-     * returns current page and total number of pages, like [10, 100] is page 10 of 100
-     *
-     * @return int[]
-     */
-    public function getPage(): array;
 }
-
-$this->page->open();
+class User {
+use Logger;
+public $name;
+function __construct($name = '') {
+$this->name = $name;
+$this->log("Created user '{$this->name}'");
+}
+function __toString() {
+return $this->name;
+}
+}
+class UserGroup {
+use Logger;
+public $users = array();
+public function addUser(User $user) {
+if (!in_array($this->users, $user)) {
+$this->users[] = $user;
+$this->log("Added user '{$user}' to group");
+}
+}
+}
+$group = new UserGroup;
+$group->addUser(new User("Franklin"));
+2012-03-09 07:12:58: [User] Created user 'Franklin'2012-03-09
+07:12:58:
+[UserGroup] Added user 'Franklin' to group

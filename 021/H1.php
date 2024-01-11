@@ -1,7 +1,7 @@
 <?php
 
 
-abstract class H1 {
+abstract class H1 {                       //teamleadas dave taska:...
 
     abstract public function randomColor() : string;
 
