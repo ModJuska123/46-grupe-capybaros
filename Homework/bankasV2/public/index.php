@@ -1,4 +1,5 @@
 <?php
+
 use Bank\App\App;
 
 require '../vendor/autoload.php';

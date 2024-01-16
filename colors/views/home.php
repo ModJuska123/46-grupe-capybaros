@@ -1,1 +1,1 @@
-<h1>Home, sweet home, on street Elm <?= $homeNumber ?></h1>
+<h1> Home, sweet home, on street Elm <?= $homeNumber ?></h1>
