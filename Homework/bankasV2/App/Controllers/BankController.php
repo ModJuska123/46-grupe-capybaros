@@ -1,11 +1,11 @@
 <?php
 
-namespace Colors\App\Controllers;
+namespace Bank\App\Controllers;
 
-use Colors\App\App;
+use Bank\App\App;
 
 
-class HomeController
+class BankController
 {
     public function index()
     {

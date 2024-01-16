@@ -7,14 +7,17 @@ class App
 {
     public static function run()
     {
-        $server = $_SERVER['REQUEST_URI'];
-        // $server = str_replace('/colors/public/', '', $server);
+        $server = $_SERVER['REQUEST_URI'];  // 
+        // $server = str_replace('/colors/public/', '', $server); //galima trinti ko nereikia
         $url = explode('/', $server);
+        print_r($url);
         array_shift($url);
+        
         return self::router($url);
+        
     }
-
-
+    
+    
     private static function router($url)
     {
         $method = $_SERVER['REQUEST_METHOD'];
