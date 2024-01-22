@@ -9,28 +9,29 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?= URL ?>">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
         <li class="nav-item dropdown">
-          
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Accounts
           </a>
-
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?= URL ?>/accounts/create">Create new</a></li> 
             <li><a class="dropdown-item" href="<?= URL ?>/accounts">Show all accounts</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-
+        </li>
       </ul>
 
-      <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit">Logout</button>
-      </form>
+      <div class="d-flex">
+        <?php if ($auth): ?>
+          <div class="me-3">Hello, <?= $auth ?></div>
+          <form action="<?= URL ?>/logout" method="post">
+            <button class="btn btn-outline-primary">Logout</button>
+          </form>
+        <?php else: ?>
+          <a href="<?= URL ?>/login" class="btn btn-outline-primary">Login</a>
+        <?php endif ?>
+      </div>
 
     </div>
   </div>
 </nav>
+<?php require ROOT. 'views/message.php' ?>
