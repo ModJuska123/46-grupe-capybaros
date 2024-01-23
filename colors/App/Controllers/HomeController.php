@@ -12,9 +12,8 @@ class HomeController
         $number = rand(1, 100);
         
         return App::view('home', [
-            'homeNumberIsKurCia' => $number
+            'homeNumber' => $number
         ]);
-        return '<h1>Home</h1>';
     }
 
     public function color($color)
