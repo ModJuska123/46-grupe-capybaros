@@ -1,7 +1,6 @@
 {
-    "name": "arvyd/colors",
-    "description": "Nice colors CRUD",
-    "license": "MIT",
+    "name": "jusko/colors",
+    "description": "abc",
     "autoload": {
         "psr-4": {
             "App\\DB\\": "App/DB/",
@@ -10,8 +9,8 @@
     },
     "authors": [
         {
-            "name": "Colored Bebras",
-            "email": "bebras@colors.com"
+            "name": "ModJuska123",
+            "email": "142696870+ModJuska123@users.noreply.github.com"
         }
     ],
     "require": {}
