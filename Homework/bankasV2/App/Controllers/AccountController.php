@@ -182,22 +182,24 @@ class AccountController {
     }
         
         
-    public function updateAdd($id, $request)
+    public function updateAdd ($id, $request)
     {
-    if (!AccountUpdateRequest::validate($request)) {
-        return App::redirect("accounts/index");
-    }
-    $addmoney = $request['addMoney'] ?? null;
+    // if (!AccountUpdateRequest::validate($request)) {
+    //     return App::redirect("accounts/index");
+    // }
+    $addmoney = $request['addmoney'] ?? null;
 
     // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
     $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
         'file' => new FileBase('accounts'),
         'maria' => new MariaBase('accounts')
     };
-
+    // $id = $request['akId'] ?? null;
     $userData = $writer->show($id);
+    // print_r($userData->balance);
+    // die;
     $userData->balance += $addmoney;
-    $writer->update($id, $userData);
+    $writer->update($id, $userData->balance);
     Message::get()->set('success', "$addmoney" . '€ was added to ' . "$userData->name" . "'s account.");
 
     return App::redirect('accounts/index');

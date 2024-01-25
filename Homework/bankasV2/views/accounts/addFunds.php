@@ -14,7 +14,7 @@
                             <div style="display: flex; flex-direction:column; gap:2px">
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label">EUR</label>
-                                <input type="text" class="form-control" name="balance">
+                                <input type="text" class="form-control" name="addmoney">
                             </div>
                             </div>
                         </div>
