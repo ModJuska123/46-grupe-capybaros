@@ -4,17 +4,22 @@ namespace Bank\App\Controllers;
 
 use Bank\App\App;
 use App\DB\FileBase;
+use App\DB\MariaBase;
 use Bank\App\Message;
 
 
 class AccountController {
     
     public function index($request) {
-        $writer = new FileBase('accounts');
+
+        // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+        $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+            'file' => new FileBase('accounts'),
+            'maria' => new MariaBase('accounts'),
+        };
         $accounts = $writer->showAll();
 
-        $sort = $request['sort'] ?? null;
-
+        $sort = $request['sort'] ?? null;           //sorto pradzia...
         if ($sort == 'size-asc') {
             usort($accounts, fn($a, $b) => $a->vardas_pavarde <=> $b->vardas_pavarde);
             $sortValue = 'size-desc';
@@ -23,7 +28,7 @@ class AccountController {
             $sortValue = 'size-asc';
         } else {
             $sortValue = 'size-asc';
-        }
+        }                                            //sorto pabaiga...
 
 
         return App::view('accounts/index', [
@@ -34,16 +39,22 @@ class AccountController {
     }
     
     public function create() {
-        return App::view('accounts/create', ['title' => 'Create new account'
+        return App::view('accounts/create', 
+        ['title' => 'Create new account'
     ]);
     }
 
     public function store($request) {
         $vardas_pavarde = $request['vardas_pavarde'] ?? null;
         $akId = $request['akId'] ?? null;
-        $AC = $request['AC'] ?? null;
-        $balance = $request['balance'] ?? null;
-        $writer = new FileBase('accounts');
+        $iban = $request['iban'] ?? null;            
+        $balance = $request['balance'] ?? null;     
+
+        // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+        $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+            'file' => new FileBase('accounts'),
+            'maria' => new MariaBase('accounts')
+        };
 
         // $accounts = $writer->showAll();
         // foreach ($accounts as $account) {
@@ -57,7 +68,7 @@ class AccountController {
         $writer->create((object) [
             'vardas_pavarde' => $vardas_pavarde,
             'akId' =>  $akId,
-            'AC' => "LT8970440" . rand(10000000000, 99999999999),
+            'iban' => "LT8970440" . rand(10000000000, 99999999999),
             'balance' => 0
         ]);
 
@@ -68,7 +79,12 @@ class AccountController {
 
     public function destroy($id) {
 
-        $writer = new FileBase('accounts');
+       // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+       $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+        'file' => new FileBase('accounts'),
+        'maria' => new MariaBase('accounts')
+       };
+
         $writer->delete($id);
 
         Message::get()->set('danger', 'Account was deleted');
@@ -78,7 +94,12 @@ class AccountController {
     
     public function edit($id) {
 
-        $writer = new FileBase('accounts');
+        // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+        $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+            'file' => new FileBase('accounts'),
+             'maria' => new MariaBase('accounts')
+            };
+
         $account = $writer->show($id);
 
         return App::view('accounts/edit', [
@@ -88,15 +109,20 @@ class AccountController {
     }
 
     public function update($id, $request) {
-
         $vardas_pavarde = $request['vardas_pavarde'] ?? null;
         $akId = $request['akId'] ?? null;
 
-        $writer = new FileBase('accounts');
-        $writer->update($id, [
+        // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+        $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+            'file' => new FileBase('accounts'),
+            'maria' => new MariaBase('accounts')
+        };
+
+        $writer->update($id, (object) [
             'vardas_pavarde' => $vardas_pavarde,
-            'akId' => $akId
-    ]);
+            'akId' => $akId,
+            'iban' => $iban ?? 'unkknown'
+        ]);
 
         Message::get()->set('warning', 'Account was adjusted');
 
@@ -116,7 +142,11 @@ class AccountController {
 
     public function updateWithdraw($id, $request)
     {
-        $withdrawMoney = $request['withdraw'] ?? null;
+        // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+        $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+            'file' => new FileBase('accounts'),
+            'maria' => new MariaBase('accounts')
+        };
 
         $writer = new FileBase('accounts');
         $userData = $writer->show($id);
@@ -135,34 +165,41 @@ class AccountController {
             return App::redirect('accounts');
         }
    
+    public function addFunds($id) 
+    {
     
+       // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+       $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+        'file' => new FileBase('accounts'),
+        'maria' => new MariaBase('accounts')
+    };
 
-
-        public function addFunds($id) 
-        {
-    
-            $writer = new FileBase('accounts');
-            $accounts = $writer->show($id);
-            return App::view('accounts/addFunds', [
-                'title' => 'Add Funds',
-                'accounts' => $accounts
-            ]);
-        }
-        
-        
-        public function updateAdd($id, $request)
-        {
-        if (!AccountUpdateRequest::validate($request)) {
-            return App::redirect("accounts/index");
-        }
-
-        $addmoney = $request['addMoney'] ?? null;
-        $writer = new FileBase('accounts');
-        $userData = $writer->show($id);
-        $userData->balance += $addmoney;
-        $writer->update($id, $userData);
-        Message::get()->set('success', "$addmoney" . '€ was added to ' . "$userData->name" . "'s account.");
-
-        return App::redirect('accounts/index');
-        }
+        $accounts = $writer->show($id);
+        return App::view('accounts/addFunds', [
+            'title' => 'Add Funds',
+            'accounts' => $accounts
+        ]);
     }
+        
+        
+    public function updateAdd($id, $request)
+    {
+    if (!AccountUpdateRequest::validate($request)) {
+        return App::redirect("accounts/index");
+    }
+    $addmoney = $request['addMoney'] ?? null;
+
+    // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+    $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+        'file' => new FileBase('accounts'),
+        'maria' => new MariaBase('accounts')
+    };
+
+    $userData = $writer->show($id);
+    $userData->balance += $addmoney;
+    $writer->update($id, $userData);
+    Message::get()->set('success', "$addmoney" . '€ was added to ' . "$userData->name" . "'s account.");
+
+    return App::redirect('accounts/index');
+    }
+}

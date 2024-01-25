@@ -70,8 +70,9 @@ private static function router($url)
         return (new AccountController)->addFunds($url[2]);
     }
     if ('POST' == $method && count($url) == 3 && $url[0] == 'accounts' && $url[1] == 'addFunds') {
-        return (new AccountController)->updateAdd($url[2], $_POST);
-
+    print_r($_POST);
+    die;
+        return (new AccountController)->update($url[2], $_POST);
     }
 
 
