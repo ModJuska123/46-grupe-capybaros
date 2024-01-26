@@ -131,7 +131,12 @@ class AccountController {
 
     public function withdraw($id)
     {
-        $writer = new FileBase('accounts');
+        // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
+        $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
+            'file' => new FileBase('accounts'),
+            'maria' => new MariaBase('accounts')
+        };
+
         $account = $writer->show($id);
 
         return App::view('accounts/withdraw', [
@@ -142,29 +147,28 @@ class AccountController {
 
     public function updateWithdraw($id, $request)
     {
+        $withdraw = $request['withdraw'];
         // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
         $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
             'file' => new FileBase('accounts'),
             'maria' => new MariaBase('accounts')
         };
 
-        $writer = new FileBase('accounts');
         $userData = $writer->show($id);
-
-        if ($withdrawMoney <=  $userData->balance && $withdrawMoney > 0) {
-            $userData->balance -= $withdrawMoney;
-            $writer->update($id, $userData);
-            
-            Message::get()->set('danger', "$withdrawMoney" . '€ was withdrawn from ' . "$userData->vardas_pavarde" . "'s account. ");
-            return App::redirect('accounts');
-            
-            }
-            if (Message::get()->hasErrors()) {
-                return false;
-            }
-            return App::redirect('accounts');
+        if($userData->balance < $withdraw){
+            Message::get()->set('danger', 'Not posible to withdraw then limits established (0 EUR)');
+            return App::redirect('accounts'); 
         }
-   
+        $userData->balance -= $withdraw;
+        
+        $writer->update($id, $userData);
+        Print_r($id);
+        die;
+        Message::get()->set('danger', "$withdraw" . 'EUR was withdrawn from ' . "$userData->vardas_pavarde" . " account. ");
+
+        return App::redirect('accounts');
+        }
+    
     public function addFunds($id) 
     {
     
@@ -181,27 +185,24 @@ class AccountController {
         ]);
     }
         
-        
     public function updateAdd ($id, $request)
     {
     // if (!AccountUpdateRequest::validate($request)) {
     //     return App::redirect("accounts/index");
     // }
-    $addmoney = $request['addmoney'] ?? null;
+        $addmoney = $request['addmoney'] ?? null;
 
     // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
     $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
         'file' => new FileBase('accounts'),
         'maria' => new MariaBase('accounts')
     };
-    // $id = $request['akId'] ?? null;
     $userData = $writer->show($id);
-    // print_r($userData->balance);
-    // die;
     $userData->balance += $addmoney;
-    $writer->update($id, $userData->balance);
-    Message::get()->set('success', "$addmoney" . '€ was added to ' . "$userData->name" . "'s account.");
+    
+    $writer->update($id, $userData);
+    Message::get()->set('success', "$addmoney" . 'EUR was added to ' . "$userData->vardas_pavarde" . " account.");
 
-    return App::redirect('accounts/index');
+    return App::redirect('accounts');
     }
 }

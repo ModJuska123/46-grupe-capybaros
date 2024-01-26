@@ -52,7 +52,7 @@ class MariaBase implements DataBase
 
         $sql = "
         UPDATE {$this->accounts}
-        SET vardas_pavarde = ?, akId = ?
+        SET vardas_pavarde = ?, akId = ?, balance = ?
         WHERE id = ?
         ";
 
@@ -61,6 +61,7 @@ class MariaBase implements DataBase
         return $stmt->execute([
             $data->vardas_pavarde,
             $data->akId,
+            $data->balance,
             $id
         ]);
      }

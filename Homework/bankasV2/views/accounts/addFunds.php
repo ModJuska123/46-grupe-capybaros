@@ -13,6 +13,10 @@
                         <div style="display: flex; flex-direction:column; gap:10px; align-items:center">
                             <div style="display: flex; flex-direction:column; gap:2px">
                             <div class="mb-3">
+                            <div style="display: flex; flex-direction:column; gap:2px">
+                                <p> <b>Name Surname: </b> <?= $accounts->vardas_pavarde ?></p>
+                                <p> <b>Personal Id: </b> <?= $accounts->akId ?> </p>
+                                <p> <b>Balance: </b> <?= number_format($accounts->balance, 2, '.', '') ?> €.</p>
                                 <label for="formGroupExampleInput" class="form-label">EUR</label>
                                 <input type="text" class="form-control" name="addmoney">
                             </div>

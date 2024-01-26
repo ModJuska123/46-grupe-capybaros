@@ -15,7 +15,7 @@
                             <div style="display: flex; flex-direction:column; gap:2px">
                                 <p> <b>Name Surname: </b> <?= $account->vardas_pavarde ?> </p>
                                 <p> <b>Personal Id: </b> <?= $account->akId ?> </p>
-                                <p> <b>Balance: </b> <?= number_format($account->balance, 2, '.', '') ?> €.</p>
+                                <p> <b>Balance: </b> <?= number_format($account->balance, 2, '.', '') ?> EUR</p>
                                 <input type="text" name="withdraw">
                             </div>
                         </div>
