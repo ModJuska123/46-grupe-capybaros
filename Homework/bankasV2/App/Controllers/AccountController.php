@@ -97,7 +97,7 @@ class AccountController {
         // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
         $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
             'file' => new FileBase('accounts'),
-             'maria' => new MariaBase('accounts')
+            'maria' => new MariaBase('accounts')
             };
 
         $account = $writer->show($id);
@@ -117,11 +117,12 @@ class AccountController {
             'file' => new FileBase('accounts'),
             'maria' => new MariaBase('accounts')
         };
-
+        
         $writer->update($id, (object) [
             'vardas_pavarde' => $vardas_pavarde,
             'akId' => $akId,
-            'iban' => $iban ?? 'unkknown'
+            'iban' => $iban,
+            'balance' => $balance
         ]);
 
         Message::get()->set('warning', 'Account was adjusted');
@@ -155,6 +156,7 @@ class AccountController {
         };
 
         $userData = $writer->show($id);
+
         if($userData->balance < $withdraw){
             Message::get()->set('danger', 'Not posible to withdraw then limits established (0 EUR)');
             return App::redirect('accounts'); 
