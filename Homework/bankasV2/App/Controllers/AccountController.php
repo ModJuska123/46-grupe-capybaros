@@ -10,6 +10,7 @@ use Bank\App\Message;
 
 class AccountController {
     
+
     public function index($request) {
 
         // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
@@ -30,7 +31,6 @@ class AccountController {
             $sortValue = 'size-asc';
         }                                            //sorto pabaiga...
 
-
         return App::view('accounts/index', [
             'title' => 'All account',
             'accounts' => $accounts,
@@ -38,32 +38,36 @@ class AccountController {
         ]);
     }
     
+
     public function create() {
         return App::view('accounts/create', 
         ['title' => 'Create new account'
     ]);
     }
 
+
     public function store($request) {
         $vardas_pavarde = $request['vardas_pavarde'] ?? null;
         $akId = $request['akId'] ?? null;
+// var_dump($akId);
+// die;
+
         $iban = $request['iban'] ?? null;            
-        $balance = $request['balance'] ?? null;     
+        // $balance = $request['balance'] ?? null;  
+        
+        
+        // if(strlen($fname) < 4 || strlen($lname) < 4){
+        //     Message::get()->set('danger', 'Vardas ir pavardė turi būti ilgesni nei 3 simboliai');
+        //     return App::redirect('create');
+        // }
+
+
 
         // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
         $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
             'file' => new FileBase('accounts'),
             'maria' => new MariaBase('accounts')
         };
-
-        // $accounts = $writer->showAll();
-        // foreach ($accounts as $account) {
-        //     if ($akId == $account->akId) {
-        //         Message::get()->Set('danger', 'Member with this personal code already exists');
-        //         return App::redirect('account/create');
-        //     }
-        // }
-
 
         $writer->create((object) [
             'vardas_pavarde' => $vardas_pavarde,
@@ -109,21 +113,22 @@ class AccountController {
     }
 
     public function update($id, $request) {
-        $vardas_pavarde = $request['vardas_pavarde'] ?? null;
-        $akId = $request['akId'] ?? null;
-
+        
         // $writer = new FileBase('accounts');      //pakeiciame, kad mach-intu arba file arba maria
         $writer = match (DB) {                      //sukuriame, kad mach-intu arba file arba maria
             'file' => new FileBase('accounts'),
             'maria' => new MariaBase('accounts')
         };
+
+        $vardas_pavarde = $request['vardas_pavarde'] ?? null;
+        $akId = $request['akId'] ?? null;
+    
         
-        $writer->update($id, (object) [
-            'vardas_pavarde' => $vardas_pavarde,
-            'akId' => $akId,
-            'iban' => $iban,
-            'balance' => $balance
-        ]);
+        $userData = $writer->show($id);
+        $userData->vardas_pavarde = $vardas_pavarde;
+        $userData->akId = $akId;
+      
+        $writer->update($id, $userData);
 
         Message::get()->set('warning', 'Account was adjusted');
 
@@ -164,8 +169,7 @@ class AccountController {
         $userData->balance -= $withdraw;
         
         $writer->update($id, $userData);
-        Print_r($id);
-        die;
+
         Message::get()->set('danger', "$withdraw" . 'EUR was withdrawn from ' . "$userData->vardas_pavarde" . " account. ");
 
         return App::redirect('accounts');

@@ -117,7 +117,7 @@ class ColorController {
 
         $color = $writer->show($id);
 
-        return App::view('colors/edit', [
+        return App::view('colors/index', [
             'title' => 'Edit color',
             'color' => $color
         ]);
