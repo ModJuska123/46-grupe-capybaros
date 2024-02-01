@@ -31,6 +31,18 @@ Route::prefix('mechanics')->name('mechanics-')->group(function () {
     Route::delete('/{mechanic}', [M::class, 'destroy'])->name('destroy');
 });
 
+// Trucks CRUD Group
+Route::prefix('trucks')->name('trucks-')->group(function () {
+    Route::get('/', [T::class, 'index'])->name('index');
+    Route::get('/create', [T::class, 'create'])->name('create');
+    Route::post('/', [T::class, 'store'])->name('store');
+    Route::get('/{truck}', [T::class, 'show'])->name('show');
+    Route::get('/{truck}/edit', [T::class, 'edit'])->name('edit');
+    Route::put('/{truck}', [T::class, 'update'])->name('update');
+    Route::get('/{truck}/delete', [T::class, 'delete'])->name('delete');
+    Route::delete('/{truck}', [T::class, 'destroy'])->name('destroy');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -11,6 +11,6 @@ class Mechanic extends Model
 
     protected $filable = [
         'name',
-        'surname'
+        'surname',
     ];
 }

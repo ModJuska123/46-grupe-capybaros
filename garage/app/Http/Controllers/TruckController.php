@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Truck;
-use App\Http\Controllers\Controller;
+use App\Models\Mechanic;
 use App\Http\Requests\StoreTruckRequest;
 use App\Http\Requests\UpdateTruckRequest;
 
@@ -14,7 +14,17 @@ class TruckController extends Controller
      */
     public function index()
     {
-        //
+        // eksperimentas
+        // $truck = Truck::where('mechanic_id', 1)->first();
+        // dump($truck->mechanic);
+        // dd($truck->mechanic());
+        
+        
+        $trucks = Truck::all();
+
+        return view('trucks.index', [
+            'trucks' => $trucks,
+        ]);
     }
 
     /**
@@ -22,7 +32,11 @@ class TruckController extends Controller
      */
     public function create()
     {
-        //
+        $mechanics = Mechanic::all();
+
+        return view('trucks.create', [
+            'mechanics' => $mechanics,
+        ]);
     }
 
     /**
@@ -30,7 +44,9 @@ class TruckController extends Controller
      */
     public function store(StoreTruckRequest $request)
     {
-        //
+        Truck::create($request->all());
+
+        return redirect()->route('trucks-index');
     }
 
     /**
@@ -38,7 +54,9 @@ class TruckController extends Controller
      */
     public function show(Truck $truck)
     {
-        //
+        return view('trucks.show', [
+            'truck' => $truck,
+        ]);
     }
 
     /**
@@ -46,7 +64,12 @@ class TruckController extends Controller
      */
     public function edit(Truck $truck)
     {
-        //
+        $mechanics = Mechanic::all();
+        
+        return view('trucks.edit', [
+            'truck' => $truck,
+            'mechanics' => $mechanics,
+        ]);
     }
 
     /**
@@ -54,14 +77,29 @@ class TruckController extends Controller
      */
     public function update(UpdateTruckRequest $request, Truck $truck)
     {
-        //
+        $truck->update($request->all());
+
+        return redirect()->route('trucks-index');
     }
+
+    /**
+     * Confirm remove the specified resource from storage.
+     */
+    public function delete(Truck $truck)
+    {
+        return view('trucks.delete', [
+            'truck' => $truck,
+        ]);
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Truck $truck)
     {
-        //
+        $truck->delete();
+
+        return redirect()->route('trucks-index');
     }
 }
