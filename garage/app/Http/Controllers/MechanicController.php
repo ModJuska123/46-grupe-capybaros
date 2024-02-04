@@ -23,8 +23,6 @@ class MechanicController extends Controller
     {
         $mechanics = Mechanic::all();   //cia gauname visus mechanikus arba kolekcija
 
-        dump($mechanics);
-
         return view('mechanics.index', [
             'mechanics' => $mechanics,
         ]);
