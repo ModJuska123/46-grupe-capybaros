@@ -10,17 +10,21 @@ use Illuminate\Http\Requests;              //....
 
 class StudentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
         $students = Student::all();
         return view('students.index', [
             'students' => $students,
         ]);
-
     }
 
     /**
@@ -36,7 +40,7 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        $student = Student::create($request->all());
+        Student::create($request->all());
 
         return redirect()->route('students-index');
     }
@@ -46,7 +50,9 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('students.show', [
+            'student' => $student,
+        ]);
     }
 
     /**
@@ -54,7 +60,9 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('students.edit', [
+            'student' => $student,
+        ]);
     }
 
     /**
@@ -62,14 +70,28 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        //
+        $student->update($request->all());
+
+        return redirect()->route('students-index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
+    public function delete(Student $student)
+    {
+        return view('students.delete', [
+            'student'=>$student,
+        ]);
+        //
+    }
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(Student $student)
     {
+        $student->update();
+        return redirect()->route('students-index');
         //
     }
 }

@@ -23,6 +23,11 @@
                                 <input type="text" name="email" class="form-control">
                                 <small class="form-text text-muted">Įveskite naujo studento el. paštą</small>
                             </div>
+                            <div class="form-group mb-3">
+                                <label>Pirminis slaptažodis</label>
+                                <input type="text" name="password" class="form-control">
+                                <small class="form-text text-muted">Įveskite naujo studento slaptažodį</small>
+                            </div>
                             <button type="submit" class="btn btn-primary">Sukurti</button>
                             @csrf
                         </form>
