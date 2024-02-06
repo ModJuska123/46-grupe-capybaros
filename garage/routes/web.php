@@ -16,8 +16,14 @@ use App\Http\Controllers\MechanicController AS M;
 */
 
 Route::get('/', function () {
+    $role = config('roles.models.role')::where('name', '=', 'User')->first();  //choose the default role upon user creation.
+    auth()->user->attachRole($role);
     return view('welcome');
-});
+
+})->middleware('role:admin');
+
+
+
 
 // Mechanics CRUD Group
 Route::prefix('mechanics')->name('mechanics-')->group(function () {

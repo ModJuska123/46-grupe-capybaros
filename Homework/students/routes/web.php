@@ -15,7 +15,9 @@ use App\Http\Controllers\StudentController AS S;
 */
 
 Route::get('/', function () {
+    
     return view('welcome');
+
 });
 
 // Students CRUD Group        //perrasiau viska ant studentų, vietoje mechanics
@@ -31,16 +33,13 @@ Route::prefix('students')->name('students-')->group(function () {           //pr
 });
 
 
-
-
-
-
-
-
-
-
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+    
+Route::get('/dashboard', function () {            //autorizacija...
+    $role = config('roles.models.role')::where('name', '=', 'User')->first();  //choose the default role upon user creation.
+    auth()->user->attachRole($role);
+    return view('dashboard');
+})->middleware('role:admin')->name('dashboard');
