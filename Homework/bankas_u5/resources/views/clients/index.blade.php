@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card mt-5">
                     <div class="card-header">Esamų klientų sąskaitos
                     </div>
                     <div class="card-body">
@@ -23,6 +23,8 @@
                                             href="{{ route('clients-edit', $client->id) }}">Redaguoti</a>
                                         <a class="btn btn-outline-danger m-1"
                                             href="{{ route('clients-delete', $client->id) }}">Trinti</a>
+                                        <a class="btn btn-outline-secondary m-1"
+                                            href="{{ route('clients-show', $client->id) }}">Peržiūrėti</a>
                                     </td>
                                 </tr>
                             @empty

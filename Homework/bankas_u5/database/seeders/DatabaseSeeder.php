@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 
@@ -25,5 +26,11 @@ class DatabaseSeeder extends Seeder
                 'akId' => 60204058108,
             ]);
         }
+        DB::table('users')->insert([
+            'name' => 'Bebras',
+            'email' => 'bebras@gmail.com',
+            'password' => Hash::make('123'),
+        ]);
+
     }
 }

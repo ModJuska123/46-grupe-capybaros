@@ -11,7 +11,7 @@
                         <form action="{{ route('clients-update', $client) }}" method="post">
                             <div class="form-group mb-4">
                                 <label>Vardas</label>
-                                <input type="text" name="name" class="form-control" value="{{ $mechanic->name }}">
+                                <input type="text" name="name" class="form-control" value="{{ $client->name }}">
                                 <small class="form-text text-muted">Įvesti naujos kliento vardą</small>
                             </div>
                             <div class="form-group mb-4">
@@ -21,10 +21,11 @@
                             </div>
                             <div class="form-group mb-4">
                                 <label>Asmens kodas</label>
-                                <input type="text" name="akId" class="form-control" value="{{ $mechanic->surname }}">
+                                <input type="text" name="akId" class="form-control" value="{{ $client->surname }}">
                                 <small class="form-text text-muted">Įveskite naują kliento asmens kodą</small>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary">Keisti</button>
+                            <button type="submit" class="btn btn-outline-primary m-1">Keisti</button>
+                            <a href="{{ route('clients-index') }}" class="btn btn-outline-secondary m-1">Atšaukti</a>
                             @csrf
                             @method('put')
                         </form>
@@ -35,4 +36,4 @@
     </div>
 @endsection
 
-@section('title', 'Įdarbinti naują mechaniką')
+@section('title', 'Kliento duomenų keitimas')
