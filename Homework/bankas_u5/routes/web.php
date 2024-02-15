@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClientController AS C;
+use App\Http\Controllers\IbanController AS I;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +28,17 @@ Route::prefix('clients')->name('clients-')->group(function () {
     Route::put('/{client}', [C::class, 'update'])->name('update');
     Route::get('/{client}/delete', [C::class, 'delete'])->name('delete');
     Route::delete('/{client}', [C::class, 'destroy'])->name('destroy');
+});
+//Ibans CRUD Group:
+Route::prefix('ibans')->name('ibans-')->group(function () {
+    Route::get('/', [I::class, 'index'])->name('index');
+    Route::get('/create', [I::class, 'create'])->name('create');
+    Route::post('/', [I::class, 'store'])->name('store');
+    Route::get('/{client}', [I::class, 'show'])->name('show');
+    Route::get('/{client}/edit', [I::class, 'edit'])->name('edit');
+    Route::put('/{client}', [I::class, 'update'])->name('update');
+    Route::get('/{client}/delete', [I::class, 'delete'])->name('delete');
+    Route::delete('/{client}', [I::class, 'destroy'])->name('destroy');
 });
 
 

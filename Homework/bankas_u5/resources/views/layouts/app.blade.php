@@ -38,7 +38,7 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Klientai
+                                    Klientai
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('clients-index') }}">
@@ -46,6 +46,20 @@
                                 </a>
                                 <a class="dropdown-item" href="{{ route('clients-create') }}">
                                     Naujas klientas
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Sąskaitos
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('ibans-index') }}">
+                                    Sąskaitų sąrašas
+                                </a>
+                                <a class="dropdown-item" href="{{ route('ibans-create') }}">
+                                    Nauja sąskaita
                                 </a>
                             </div>
                         </li>

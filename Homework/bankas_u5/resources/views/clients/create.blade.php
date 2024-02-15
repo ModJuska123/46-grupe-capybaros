@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Sukurti naujo kliento sąskaitą
+                    <div class="card-header">Sukurti naujo kliento duomenų kortelę
                     </div>
                     <div class="card-body">
                         <form action="{{ route('clients-store') }}" method="post">

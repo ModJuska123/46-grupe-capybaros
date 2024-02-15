@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Iban;
+use App\Models\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreIbanRequest;
 use App\Http\Requests\UpdateIbanRequest;
@@ -22,7 +23,10 @@ class IbanController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+
+        return view('ibans.create', ['clients' => $clients,]
+        );
     }
 
     /**
