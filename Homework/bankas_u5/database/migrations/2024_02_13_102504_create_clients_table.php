@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 64);
             $table->string('surname', 64);
-            $table->integer('akId')->length(11);
+            $table->bigInteger('akId')->length(11);
             $table->timestamps();
         });
     }

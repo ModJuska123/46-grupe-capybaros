@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
@@ -14,7 +15,11 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::all();
+
+        return view('clients.index', [
+            'clients' => $clients,
+    ]);
     }
 
     /**
@@ -30,7 +35,7 @@ class ClientController extends Controller
      */
     public function store(StoreClientRequest $request)
     {
-        $client = Client::create($request->validated());
+        $client = Client::create($request->all());
 
         return redirect()->route('clients-index');
     }
@@ -48,7 +53,9 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+            return view('clients.edit', [
+            'client' => $client,
+            ]);
     }
 
     /**
@@ -56,7 +63,16 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, Client $client)
     {
-        //
+//
+    }
+    /**
+     * Confirm remove the specified resource in storage.
+     */
+    public function delete(Client $client)
+    {
+        return view('clients.delete', [
+            'client' => $client
+        ]); 
     }
 
     /**
@@ -64,6 +80,8 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect()->route('clients-index');
     }
 }
