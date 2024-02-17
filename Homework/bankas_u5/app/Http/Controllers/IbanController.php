@@ -15,7 +15,9 @@ class IbanController extends Controller
      */
     public function index()
     {
-        //
+      $ibans = Iban::all();
+
+      return view('ibans.index',['ibans' => $ibans,]);
     }
 
     /**
@@ -34,7 +36,9 @@ class IbanController extends Controller
      */
     public function store(StoreIbanRequest $request)
     {
-        //
+        Iban::create($request->all());
+
+        return redirect()->route('ibans-index');
     }
 
     /**
@@ -42,7 +46,10 @@ class IbanController extends Controller
      */
     public function show(Iban $iban)
     {
-        //
+       return view('ibans.show', [
+
+        'iban' => $iban,
+       ]);
     }
 
     /**
@@ -50,7 +57,12 @@ class IbanController extends Controller
      */
     public function edit(Iban $iban)
     {
-        //
+        $clients = Client::all();
+
+        return view('ibans.edit', [
+            'iban' => $iban,
+            'clients' => $clients,
+        ]);
     }
 
     /**
@@ -58,14 +70,32 @@ class IbanController extends Controller
      */
     public function update(UpdateIbanRequest $request, Iban $iban)
     {
-        //
+        // dd($request->addfunds);
+        
+        $iban->balance =  $iban->balance + $request->addfunds - $request->reducefunds;
+
+        $iban->update($request->all());
+
+       return redirect()->route('ibans-index');
     }
 
+    /**
+     * Confirm remove the specified resource from storage.
+     */
+    public function delete(Iban $iban)
+    {
+        return view('ibans.delete', [
+            'iban' => $iban,
+        ]);
+    
+}
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Iban $iban)
     {
-        //
+        $iban->delete();
+
+        return redirect()->route('ibans-index');
     }
 }

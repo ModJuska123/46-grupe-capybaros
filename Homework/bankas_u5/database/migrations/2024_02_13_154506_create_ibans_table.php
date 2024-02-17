@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ibans', function (Blueprint $table) {
             $table->id();
-            $table->string('iban_No', 20);
+            $table->string('iban_No', 20)->nullable();
             $table->bigInteger('balance')->length(14);
             $table->unsignedBigInteger('client_id')->nullable();
             $table->foreign('client_id')->references('id')->on('clients');

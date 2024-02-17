@@ -5,29 +5,31 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Sukurti naujo kliento sąskaitą
+                    <div class="card-header">Priskirti klientui naują sąskaitą
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('clients-store') }}" method="post">
+                        <form action="{{ route('ibans-store') }}" method="post">
                             <div class="form-group mb-4">
                                 <label>IBAN</label>
-                                <input type="text" name="iban" class="form-control">
+                                <input type="text" name="iban_No" class="form-control">
                                 <small class="form-text text-muted">Įveskite naujos sąskaitos numerį</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label>Likutis</label>
                                 <input type="text" name="balance" class="form-control">
-                                <small class="form-text text-muted">Įvesti naujo kliento pavardę</small>
+                                <small class="form-text text-muted">Įvesti lėšų likutį</small>
                             </div>
                             <div class="form-group mb-4">
-                                <select class="form-select" name="mechanic_id">
-                                    <option selected value="0">Pasirinkite klientą iš sąrašo</option>
+                                <select class="form-select" name="client_id">
+                                    <option selected >Pasirinkite klientą iš sąrašo</option>
                                     @foreach ($clients as $client)
                                     <option value="{{ $client->id }}">{{ $client->name }} {{ $client->surname }}</option>
                                     @endforeach
                                 </select>
+                                <small class="form-text text-muted">Priskirtite klientui naują sąskaitą</small>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary">Pridėti</button>
+                            <button type="submit" class="btn btn-outline-primary">Priskirti</button>
+                            
                             @csrf
                         </form>
                     </div>
@@ -37,4 +39,4 @@
     </div>
 @endsection
 
-@section('title', 'Įdarbinti naują mechaniką')
+@section('title', 'Sukurti naują sąskaitą')

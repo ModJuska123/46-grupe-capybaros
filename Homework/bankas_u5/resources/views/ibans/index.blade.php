@@ -10,21 +10,23 @@
                     <div class="card-body">
                         <table class="table">
                             <tr>
-                                <th>Vardas</th>
-                                <th>Pavardė</th>
+                                <th>Klientas</th>
+                                <th>IBAN</th>
+                                <th>Balansas</th>
                                 <th>Veiksmai</th>
                             </tr>
-                            @forelse($clients as $client)
+                            @forelse($ibans as $iban)
                                 <tr>
-                                    <td>{{ $client->name }}</td>
-                                    <td>{{ $client->surname }}</td>
+                                    <td>{{ $iban->client->name }} {{ $iban->client->surname }}</td>
+                                    <td>{{ $iban->iban_No }}</td>
+                                    <td>{{ $iban->balance }}</td>
                                     <td>
                                         <a class="btn btn-outline-success m-1"
-                                            href="{{ route('clients-edit', $client->id) }}">Redaguoti</a>
+                                            href="{{ route('ibans-edit', $iban) }}">Redaguoti</a>
                                         <a class="btn btn-outline-danger m-1"
-                                            href="{{ route('clients-delete', $client->id) }}">Trinti</a>
+                                            href="{{ route('ibans-delete', $iban) }}">Trinti</a>
                                         <a class="btn btn-outline-secondary m-1"
-                                            href="{{ route('clients-show', $client->id) }}">Peržiūrėti</a>
+                                            href="{{ route('ibans-show', $iban) }}">Peržiūrėti</a>
                                     </td>
                                 </tr>
                             @empty
@@ -34,7 +36,7 @@
                             @endforelse
                         </table>
                         <div>
-                            <a href="{{ route('clients-create') }}" class="btn btn-outline-success">Pridėti</a>
+                            <a href="{{ route('ibans-create') }}" class="btn btn-outline-success">Pridėti</a>
                         </div>
                     </div>
                 </div>

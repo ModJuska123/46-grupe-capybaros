@@ -25,12 +25,33 @@ class DatabaseSeeder extends Seeder
                 'surname' => $faker->lastName,
                 'akId' => 60204058108,
             ]);
-        }
-        DB::table('users')->insert([
-            'name' => 'Bebras',
-            'email' => 'bebras@gmail.com',
-            'password' => Hash::make('123'),
-        ]);
+            }
+
+
+        foreach (range(1, 20) as $i) {
+
+            $ibanexamples = [
+                'LT248964485379345165',
+                'LT142879432961141565',
+                'LT565126552938799933',
+                'LT668425521641448712',
+                'LT668425521641448712',
+                'LT176376155966855249',
+            ];
+
+            DB::table('ibans')->insert([
+                'iban_No' => $faker->randomElement($ibanexamples),
+                'balance' => $faker->numberBetween(0, 20000),
+                'client_id' => $faker->numberBetween(1, 18),
+            ]);
+            }
+
+
+            DB::table('users')->insert([
+                'name' => 'Bebras',
+                'email' => 'bebras@gmail.com',
+                'password' => Hash::make('123'),
+            ]);
 
     }
 }

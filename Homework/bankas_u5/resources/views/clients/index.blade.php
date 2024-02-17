@@ -5,7 +5,21 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card mt-5">
-                    <div class="card-header">Esamų klientų sąskaitos
+                    <div class="card-header">Klientų duomenys
+                        <form>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Rūšiuoti klientus</option>
+                                            <option value="1">A-Z</option>
+                                            <option value="2">Z-A</option>
+                                            <option value="3">Nerūšiuota</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="card-body">
                         <table class="table">
@@ -22,7 +36,8 @@
                                         <a class="btn btn-outline-success m-1"
                                             href="{{ route('clients-edit', $client->id) }}">Redaguoti</a>
                                         <a class="btn btn-outline-danger m-1"
-                                            href="{{ route('clients-delete', $client->id) }}">Trinti</a>
+                                            href="{{ route('clients-delete', $client->id) }}">Trinti
+                                            [{{ $client->ibans()->count() }}]</a>
                                         <a class="btn btn-outline-secondary m-1"
                                             href="{{ route('clients-show', $client->id) }}">Peržiūrėti</a>
                                     </td>
