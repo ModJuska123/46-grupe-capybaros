@@ -106,10 +106,13 @@ class IbanController extends Controller
      */
     public function update(UpdateIbanRequest $request, Iban $iban)
     {
-        // dd($request->addfunds);
         
-        $iban->balance =  $iban->balance + $request->addfunds - $request->reducefunds;
-
+        $iban->balance =  $iban->balance + $request->addfunds - $request->reducefunds - $request->transfer;
+        
+        //dd($transfer);
+       
+        // $iban->recipient_id =  $iban->balance + $transfer;
+        
         $iban->update($request->all());
 
        return redirect()->route('ibans-index')->with('ok', 'Sąskaita sėkmingai pakooreguota');

@@ -76,7 +76,7 @@
                                     <td>{{ $iban->balance }}</td>
                                     <td>
                                         <a class="btn btn-outline-success m-1"
-                                            href="{{ route('ibans-edit', $iban) }}">Redaguoti</a>
+                                            href="{{ route('ibans-edit', $iban) }}">Lėšos</a>
                                         <a class="btn btn-outline-danger m-1"
                                             href="{{ route('ibans-delete', $iban) }}">Trinti</a>
                                         <a class="btn btn-outline-secondary m-1"

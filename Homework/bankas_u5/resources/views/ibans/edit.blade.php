@@ -5,32 +5,47 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Redaguoti sąskaitą
+                    <div class="card-header">Papildyti arba nuskaičiuoti lėšas
                     </div>
                     <div class="card-body">
                         <form action="{{ route('ibans-update', $iban) }}" method="post">
                             <div class="form-group mb-4">
-                                <label>IBAN: {{ $iban->iban_No }}</label>
-                                {{-- <input type="text" name="iban_No" class="form-control">
-                                <small class="form-text text-muted">Įveskite naują sąskaitos numerį</small> --}}
+                                <label>Atlikti veiksmus sąskaitos viduje: {{ $iban->iban_No }}</label>
+                              <small class="form-text text-muted">Įveskite naują sąskaitos numerį</small> --}}
                             </div>
                             <div class="form-group mb-4">
-                                <label>Likutis: {{ $iban->balance }} EUR</label >
+                                <label>Likutis: {{ $iban->balance }} EUR</label>
                                 <input type="text" name="addfunds" class="form-control">
-                                <small class="form-text text-muted">Papildyti sąskaitą lėšomis</small>
-                                
+                                <small class="form-text text-muted">Papildyti sąskaitą lėšomis EUR</small>
+
                                 <input type="text" name="reducefunds" class="form-control">
-                                <small class="form-text text-muted">Nuskaičiuoti lėšų nuo sąskaitos</small>
+                                <small class="form-text text-muted">Nuskaičiuoti lėšų nuo sąskaitos EUR</small>
                             </div>
-                            {{-- <div class="form-group mb-4">
-                                <select class="form-select" name="client_id">
-                                    <option selected >Pasirinkite klientą iš sąrašo</option>
+
+
+                            <label class="mb-3 mt-3">Pervesti lėšas tarp sąskaitų iš {{ $iban->iban_No }}:</label>
+                            {{-- <div class="mb-4">
+                                <select class="form-select" name="donor_id">
+                                    <option selected>Pasirinkite lėšų siuntėją</option>
                                     @foreach ($clients as $client)
-                                    <option value="{{ $client->id }}">{{ $client->name }} {{ $client->surname }}</option>
+                                        <option value="{{ $client->id }}">{{ $client->name }} {{ $client->surname }}
+                                        </option>
                                     @endforeach
                                 </select>
-                                <small class="form-text text-muted">Priskirtite klientui naują sąskaitą</small>
                             </div> --}}
+                            <div class="form-group mb-4">
+                                <select class="form-select" name="recipient_id">
+                                    <option selected>Pasirinkite lėšų gavėją</option>
+                                    @foreach ($clients as $client)
+                                        <option value="{{ $client->id }}">{{ $client->name }} {{ $client->surname }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group mb-4">
+                                <input type="text" name="transfer" class="form-control">
+                                <small class="form-text text-muted">Pasirinkti sumą EUR</small>
+                            </div>
                             <button type="submit" class="btn btn-outline-primary m-1">Išsaugoti</button>
                             <a href="{{ route('ibans-index') }}" class="btn btn-outline-secondary m-1">Atšaukti</a>
                             @csrf
