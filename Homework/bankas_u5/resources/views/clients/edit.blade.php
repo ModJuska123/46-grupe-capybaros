@@ -11,17 +11,17 @@
                         <form action="{{ route('clients-update', $client) }}" method="post">
                             <div class="form-group mb-4">
                                 <label>Vardas</label>
-                                <input type="text" name="name" class="form-control" value="{{ $client->name }}">
+                                <input type="text" name="name" class="form-control" value="{{ old('name', $client->name) }}">
                                 <small class="form-text text-muted">Įvesti naujos kliento vardą</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label>Pavardė</label>
-                                <input type="text" name="surname" class="form-control" >
+                                <input type="text" name="surname" class="form-control" value="{{ old('surname', $client->surname) }}" >
                                 <small class="form-text text-muted">Įveskite naują kliento pavardę</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label>Asmens kodas</label>
-                                <input type="text" name="akId" class="form-control" value="{{ $client->surname }}">
+                                <input type="text" name="akId" class="form-control" value="{{ old('akId', $client->akId) }}">
                                 <small class="form-text text-muted">Įveskite naują kliento asmens kodą</small>
                             </div>
                             <button type="submit" class="btn btn-outline-primary m-1">Keisti</button>

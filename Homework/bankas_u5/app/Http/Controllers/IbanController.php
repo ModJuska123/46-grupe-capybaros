@@ -7,17 +7,53 @@ use App\Models\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreIbanRequest;
 use App\Http\Requests\UpdateIbanRequest;
+// use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class IbanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-      $ibans = Iban::all();
 
-      return view('ibans.index',['ibans' => $ibans,]);
+        $clients = Client::orderBy('name')->get();
+
+
+        $sorts = Iban::getSorts();
+        $sortBy = $request->query('sort', '');
+        $perPageSelect = Iban::getPerPageSelect();
+        $perPage = (int) $request->query('per_page', 0);
+        $clientId = (int) $request->query('client_id', 0);
+
+        $ibans = Iban::query();
+
+        if ($clientId > 0) {
+            $ibans = $ibans->where('client_id', $clientId);
+        }
+
+        $ibans = match($sortBy) {
+            'balance_asc' => $ibans->orderBy('balance'),
+            'balance_desc' => $ibans->orderByDesc('balance'),
+            default => $ibans,
+        };
+
+        if($perPage > 0) {
+            $ibans = $ibans->paginate($perPage)->withQueryString();
+        } else {
+            $ibans = $ibans->get();
+        }
+
+      return view('ibans.index', [
+        'ibans' => $ibans,
+        'sorts' => $sorts,
+        'sortBy' => $sortBy,
+        'perPageSelect' => $perPageSelect,
+        'perPage' => $perPage,
+        'clients' => $clients,
+        'clientId' => $clientId,
+    ]);
     }
 
     /**
@@ -38,7 +74,7 @@ class IbanController extends Controller
     {
         Iban::create($request->all());
 
-        return redirect()->route('ibans-index');
+        return redirect()->route('ibans-index')->with('ok', 'Sąskaita sėkmingai sukurta');
     }
 
     /**
@@ -76,7 +112,7 @@ class IbanController extends Controller
 
         $iban->update($request->all());
 
-       return redirect()->route('ibans-index');
+       return redirect()->route('ibans-index')->with('ok', 'Sąskaita sėkmingai pakooreguota');
     }
 
     /**
@@ -96,6 +132,6 @@ class IbanController extends Controller
     {
         $iban->delete();
 
-        return redirect()->route('ibans-index');
+        return redirect()->route('ibans-index')->with('info', 'Sąskaita sėkmingai ištrinta');
     }
 }

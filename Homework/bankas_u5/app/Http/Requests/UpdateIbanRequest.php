@@ -22,7 +22,16 @@ class UpdateIbanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'balance' => 'integer|max:14',
         ];
+    }
+
+    public function messages(): array
+    {
+        return
+            [
+                'balance.string' => 'Lėšos turi būti įvedamos skaičiais',
+                'balance.max' => 'Lėšas turi sudaryti maksimaliai 14 simbolių',
+            ];
     }
 }

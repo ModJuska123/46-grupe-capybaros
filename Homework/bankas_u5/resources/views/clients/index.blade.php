@@ -6,16 +6,39 @@
             <div class="col-md-8">
                 <div class="card mt-5">
                     <div class="card-header">Klientų duomenys
-                        <form>
+                        <form action="{{ route('clients-index') }}">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-4">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Rūšiuoti klientus</option>
-                                            <option value="1">A-Z</option>
-                                            <option value="2">Z-A</option>
-                                            <option value="3">Nerūšiuota</option>
-                                        </select>
+                                    <div class="col-3">
+                                        <div class="form-group mb-2">
+                                            <label class="mt-4">Rūšiavimas</label>
+                                            <select class="form-select" name="sort">
+                                                @foreach ($sorts as $sortKey => $sortValue)
+                                                    <option value="{{ $sortKey }}"
+                                                        @if ($sortBy == $sortKey) selected @endif>
+                                                        {{ $sortValue }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group mb-2">
+                                            <label class="mt-4">Rodyti puslapyje</label>
+                                            <select class="form-select" name="per_page">
+                                                @foreach ($perPageSelect as $perPageKey => $perPageValue)
+                                                    <option value="{{ $perPageKey }}"
+                                                        @if ($perPage == $perPageKey) selected @endif>
+                                                        {{ $perPageValue }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-outline-primary mt-5">Rodyti</button>
+                                            <a href="{{ route('clients-index') }}"
+                                                class="btn btn-outline-secondary mt-5 ms-1">Grįžti</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -53,6 +76,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-3">
+                    @if ($perPage)
+                        {{ $clients->links() }}
+                </div>
+                @endif
             </div>
         </div>
     </div>

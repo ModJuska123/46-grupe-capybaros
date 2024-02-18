@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use App\Models\Mechanic;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -19,12 +20,36 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $clients = Client::all();
+        $sorts = Client::getSorts();          //pasiimti sortus iš clientControler
+        $sortBy = $request->query('sort', '');
+        $perPageSelect = Client::getPerPageSelect();
+        $perPage = (int) $request->query('per_page', 0);
+
+        $clients = Client::query();
+
+        $clients = match($sortBy) {
+            'name_asc' => $clients->orderBy('surname'),
+            'name_desc' => $clients->orderByDesc('surname'),
+            default => $clients,
+        };
+
+        if($perPage > 0) {
+            $clients = $clients->paginate($perPage)->withQueryString();
+        } else {
+            $clients = $clients->get();
+        }
+
+        // $clients = $clients->paginate(8);   //puslapiavimas
 
         return view('clients.index', [
             'clients' => $clients,
+            'sorts' => $sorts,
+            'sortBy' => $sortBy,
+            'perPageSelect' => $perPageSelect,
+            'perPage' => $perPage,
     ]);
     }
 
@@ -43,7 +68,7 @@ class ClientController extends Controller
     {
         $client = Client::create($request->all());
 
-        return redirect()->route('clients-index');
+        return redirect()->route('clients-index')->with('ok', 'Sukurtas naujas klientas');
     }
 
     /**
@@ -72,7 +97,7 @@ class ClientController extends Controller
     public function update(UpdateClientRequest $request, Client $client)
     {
         $client->update($request->all());
-        return redirect()->route('clients-index');
+        return redirect()->route('clients-index')->with('ok', 'Kliento duomenys atnaujinti');
     }
     /**
      * Confirm remove the specified resource in storage.
@@ -91,6 +116,6 @@ class ClientController extends Controller
     {
         $client->delete();
 
-        return redirect()->route('clients-index');
+        return redirect()->route('clients-index')->with('info', 'Kliento duomenys ištrinti');
     }
 }

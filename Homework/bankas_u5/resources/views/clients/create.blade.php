@@ -11,17 +11,17 @@
                         <form action="{{ route('clients-store') }}" method="post">
                             <div class="form-group mb-4">
                                 <label>Vardas</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                                 <small class="form-text text-muted">Įvesti naujos kliento vardą</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label>Pavardė</label>
-                                <input type="text" name="surname" class="form-control">
+                                <input type="text" name="surname" class="form-control" value="{{ old('surname') }}">
                                 <small class="form-text text-muted">Įvesti naujo kliento pavardę</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label>Asmens kodas</label>
-                                <input type="text" name="akId" class="form-control">
+                                <input type="text" name="akId" class="form-control" value="{{ old('akId') }}">
                                 <small class="form-text text-muted">Įvesti naujo kliento asmens kodą</small>
                             </div>
                             <button type="submit" class="btn btn-outline-primary">Sukurti</button>
