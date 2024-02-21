@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header"><h2>Džiaugiamės, kad prisijungėte prie savo banko "BigBank"!!!</h2></div>
 
                 <div class="card-body">
                     @if (session('status'))

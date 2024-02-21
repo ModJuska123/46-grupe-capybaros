@@ -11,7 +11,6 @@
                         <form action="{{ route('ibans-update', $iban) }}" method="post">
                             <div class="form-group mb-4">
                                 <label>Atlikti veiksmus sąskaitos viduje: {{ $iban->iban_No }}</label>
-                              <small class="form-text text-muted">Įveskite naują sąskaitos numerį</small> --}}
                             </div>
                             <div class="form-group mb-4">
                                 <label>Likutis: {{ $iban->balance }} EUR</label>
